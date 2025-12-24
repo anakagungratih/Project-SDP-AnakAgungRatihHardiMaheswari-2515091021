@@ -18,29 +18,34 @@
 # -----------------------------------------------------------------
 # Jika variabel 'data_bersih' belum ada, jalankan skrip 01 terlebih dahulu.
 if (!exists("data_bersih")) {
-  source("01_data_preparation.R")
-  print("Menjalankan skrip 01_data_preparation.R...")
+  source("data_bersih.RData")
+  print("Menjalankan skrip 01_data_preparation.R.")
 }
 
 # Ganti dengan nama kolom numerik yang ingin Anda analisis dari dataset Anda.
 # Contoh: kolom_analisis <- "harga_rumah"
-kolom_analisis <- "nama_kolom_numerik" 
+kolom_analisis <- "Pendapatan_Tahunan_Miliar_IDR" 
 
 # Pastikan kolom yang dipilih ada di dalam data
-if(!kolom_analisis %in% names(data_bersih)) {
-  stop(paste("Kolom '", kolom_analisis, "' tidak ditemukan dalam data. Silakan periksa kembali nama kolom pada file 02_analisis_deskriptif.R"))
+if(!"Pendapatan_Tahunan_Miliar_IDR" %in% names(data_bersih)) {
+  stop(paste(
+    "Kolom 'Pendapatan_Tahunan_Miliar_IDR' tidak ditemukan dalam data."
+  ))
 }
 
 # -----------------------------------------------------------------
 # Langkah 1: Ukuran Pemusatan Data
 # -----------------------------------------------------------------
 # Mean (Rata-rata)
-mean_value <- mean(data_bersih[[kolom_analisis]], na.rm = TRUE)
-print(paste("Mean dari", kolom_analisis, ":", round(mean_value, 2)))
+mean_value <- mean(data_bersih[["Pendapatan_Tahunan_Miliar_IDR"]], na.rm = TRUE)
+print(paste(
+  "Mean dari Pendapatan_Tahunan_Miliar_IDR:",
+  round(mean_value, 2)
+))
 
 # Median (Nilai Tengah)
-median_value <- median(data_bersih[[kolom_analisis]], na.rm = TRUE)
-print(paste("Median dari", kolom_analisis, ":", round(median_value, 2)))
+median_value <- median(data_bersih[["Pendapatan_Tahunan_Miliar_IDR"]], na.rm = TRUE)
+print(paste("Median dari", "Pendapatan_Tahunan_Miliar_IDR", ":", round(median_value, 2)))
 
 # Modus (Nilai yang Paling Sering Muncul)
 # R tidak memiliki fungsi modus bawaan, jadi kita bisa membuatnya sendiri.
@@ -48,37 +53,58 @@ get_mode <- function(v) {
   uniqv <- unique(v)
   uniqv[which.max(tabulate(match(v, uniqv)))]
 }
-mode_value <- get_mode(data_bersih[[kolom_analisis]])
-print(paste("Modus dari", kolom_analisis, ":", mode_value))
+mode_value <- get_mode(data_bersih[["Pendapatan_Tahunan_Miliar_IDR"]])
+print(paste("Modus dari", "Pendapatan_Tahunan_Miliar_IDR", ":", mode_value))
 
+
+#SHORTCUT 
+vars_numerik <- c(
+  "Pendapatan_Tahunan_Miliar_IDR",
+  "Biaya_Akuisisi_Pelanggan_Juta_IDR",
+  "Nilai_Pelanggan_Juta_IDR"
+)
+
+stat_deskriptif <- data.frame(
+  Variabel = vars_numerik,
+  Mean = sapply(vars_numerik, function(v)
+    round(mean(data_bersih[[v]], na.rm = TRUE), 2)
+  ),
+  Median = sapply(vars_numerik, function(v)
+    round(median(data_bersih[[v]], na.rm = TRUE), 2)
+  ),
+  Modus = sapply(vars_numerik, function(v)
+    get_mode(data_bersih[[v]])
+  )
+)
+
+stat_deskriptif
 
 # -----------------------------------------------------------------
 # Langkah 2: Ukuran Sebaran Data
 # -----------------------------------------------------------------
 # Standar Deviasi
-sd_value <- sd(data_bersih[[kolom_analisis]], na.rm = TRUE)
-print(paste("Standar Deviasi dari", kolom_analisis, ":", round(sd_value, 2)))
+sd_value <- sd(data_bersih[["Pendapatan_Tahunan_Miliar_IDR"]], na.rm = TRUE)
+print(paste("Standar Deviasi dari", "Pendapatan_Tahunan_Miliar_IDR", ":", round(sd_value, 2)))
 
 # Range (Jangkauan)
-range_value <- range(data_bersih[[kolom_analisis]], na.rm = TRUE)
-print(paste("Range dari", kolom_analisis, ":", range_value[1], "-", range_value[2]))
+range_value <- range(data_bersih[["Pendapatan_Tahunan_Miliar_IDR"]], na.rm = TRUE)
+print(paste("Range dari", "Pendapatan_Tahunan_Miliar_IDR", ":", range_value[1], "-", range_value[2]))
 
 # Kuartil dan Ringkasan 5 Angka (Min, Q1, Median, Q3, Max)
-summary_value <- summary(data_bersih[[kolom_analisis]])
-print(paste("Ringkasan 5 Angka untuk", kolom_analisis, ":"))
+summary_value <- summary(data_bersih[["Pendapatan_Tahunan_Miliar_IDR"]])
+print(paste("Ringkasan 5 Angka untuk", "Pendapatan_Tahunan_Miliar_IDR", ":"))
 print(summary_value)
-
 
 # -----------------------------------------------------------------
 # Langkah 3: Visualisasi Data
 # -----------------------------------------------------------------
 # A. Histogram
 # Histogram membantu melihat bentuk distribusi data.
-hist_plot <- ggplot(data_bersih, aes_string(x = kolom_analisis)) +
+hist_plot <- ggplot(data_bersih, aes_string(x = "Pendapatan_Tahunan_Miliar_IDR")) +
   geom_histogram(bins = 20, fill = "skyblue", color = "white") +
   geom_vline(aes(xintercept = mean_value), color = "red", linetype = "dashed", size = 1) +
   labs(
-    title = paste("Histogram dari", kolom_analisis),
+    title = paste("Histogram dari", "Pendapatan_Tahunan_Miliar_IDR"),
     subtitle = paste("Garis merah putus-putus menunjukkan Mean =", round(mean_value, 2)),
     x = kolom_analisis,
     y = "Frekuensi"
@@ -89,21 +115,24 @@ print(hist_plot)
 
 # Menyimpan histogram ke folder 'results'
 ggsave(
-  filename = paste0("../results/histogram_", kolom_analisis, ".png"),
+  filename = paste0(
+    "C:/Users/anaka/OneDrive/Desktop/Semester 1/Statistika dan Probabilitas/Tugas_Analisis_Statistik/results/histogram_",
+    "Pendapatan_Tahunan_Miliar_IDR",
+    ".png"
+  ),
   plot = hist_plot,
   width = 8,
   height = 6
 )
 print(paste("Histogram disimpan di folder 'results' dengan nama histogram_", kolom_analisis, ".png", sep=""))
 
-
 # B. Boxplot
 # Boxplot berguna untuk mengidentifikasi pencilan (outliers) dan melihat sebaran kuartil.
-box_plot <- ggplot(data_bersih, aes_string(y = kolom_analisis)) +
+box_plot <- ggplot(data_bersih, aes_string(y = "Pendapatan_Tahunan_Miliar_IDR")) +
   geom_boxplot(fill = "lightgreen", color = "black") +
   labs(
-    title = paste("Boxplot dari", kolom_analisis),
-    y = kolom_analisis
+    title = paste("Boxplot dari", "Pendapatan_Tahunan_Miliar_IDR"),
+    y = "Pendapatan_Tahunan_Miliar_IDR"
   ) +
   theme_minimal()
 
@@ -111,12 +140,16 @@ print(box_plot)
 
 # Menyimpan boxplot ke folder 'results'
 ggsave(
-  filename = paste0("../results/boxplot_", kolom_analisis, ".png"),
+  filename = paste0(
+    "C:/Users/anaka/OneDrive/Desktop/Semester 1/Statistika dan Probabilitas/Tugas_Analisis_Statistik/results/boxplot_",
+    "Pendapatan_Tahunan_Miliar_IDR",
+    ".png"
+  ),
   plot = box_plot,
   width = 6,
   height = 8
 )
-print(paste("Boxplot disimpan di folder 'results' dengan nama boxplot_", kolom_analisis, ".png", sep=""))
+print(paste("Boxplot disimpan di folder 'results' dengan nama boxplot_", "Pendapatan_Tahunan_Miliar_IDR", ".png", sep=""))
 
 # Pesan akhir
 print("Analisis deskriptif selesai. Jangan lupa untuk menginterpretasikan hasilnya di file README.md.")
