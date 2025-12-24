@@ -62,8 +62,13 @@ Rata-rata (Mean): 31,88 Miliar IDR
 Nilai Tengah (Median): 31,30 Miliar IDR
 Nilai Paling Sering Muncul (Modus): 1,87 Miliar IDR
 
-Interpretasi:
+Interpretasi histogram
+[Histogram Pendapatan Tahunan](results/histogram_Pendapatan_Tahunan_Miliar_IDR.png)
 Rata-rata pendapatan tahunan berada pada 31,88 Miliar IDR dengan nilai tengah 31,30 Miliar IDR, menunjukkan distribusi data yang relatif simetris. Namun, nilai modus yang jauh lebih rendah (1,87 Miliar IDR) mengindikasikan bahwa sebagian besar perusahaan memiliki pendapatan tahunan yang rendah. Perbedaan signifikan antara mean dan modus menunjukkan adanya beberapa perusahaan dengan pendapatan sangat tinggi yang menarik nilai rata-rata ke atas.
+Histogram ini menunjukkan distribusi frekuensi pendapatan tahunan dari 650 startup SaaS dalam dataset. Visualisasi mengungkap pola yang sangat jelas: sebagian besar startup berada di skala pendapatan yang rendah.
+Puncak histogram mencapai frekuensi sekitar 40 observasi pada rentang pendapatan 0-20 Miliar IDR, menandakan bahwa mayoritas perusahaan memiliki kinerja finansial yang masih dalam tahap awal atau menengah. Setelah melewati 20 Miliar IDR, frekuensi observasi turun secara drastis, membentuk "ekor panjang" di sisi kanan.
+Ekor panjang yang memanjang hingga mendekati 60 Miliar IDR mewakili segelintir startup berkinerja sangat tinggi yang mampu menghasilkan pendapatan jauh di atas rata-rata. Pola ini menjelaskan mengapa nilai rata-rata (mean) 31.88 Miliar IDR berada jauh di atas modus (1.87 Miliar IDR), beberapa outlier berprestasi luar biasa menarik rata-rata keseluruhan ke atas.
+Histogram ini secara visual mengkonfirmasi karakteristik industri startup yang terkenal: distribusi "pemenang mengambil semua", di mana sebagian besar pemain berada di skala kecil, sementara hanya sedikit yang mencapai kesuksesan skala besar.
 
 2. Biaya Akuisisi Pelanggan (Juta IDR)
 Rata-rata (Mean): 33,50 Juta IDR
@@ -116,13 +121,13 @@ Standar deviasi sebesar 19.79 Miliar IDR mengindikasikan tingkat penyebaran data
 **Kesimpulan**: Data pendapatan tahunan menunjukkan variasi yang sangat tinggi dengan distribusi yang cenderung miring ke kanan. Sebagian besar perusahaan memiliki pendapatan relatif rendah, namun terdapat beberapa perusahaan dengan pendapatan sangat tinggi yang menarik rata-rata keseluruhan ke atas.
 
 - **Visualisasi (Histogram/Boxplot): disini saya menggunakan variabel pendapatan tahunan saja**
-
 Interpretasi **Histogram** Pendapatan Tahunan
 Histogram distribusi Pendapatan Tahunan menunjukkan pola yang tidak simetris dan jelas miring ke kanan (right-skewed). Sebagian besar data, dengan frekuensi tertinggi mencapai sekitar 40 observasi, terkonsentrasi kuat pada rentang pendapatan rendah, yaitu antara 0 hingga 20 Miliar IDR. Setelah melewati titik tersebut, frekuensi observasi mulai menurun drastis.
 Rata-rata (mean) pendapatan, yang ditunjukkan oleh garis merah putus-putus pada nilai 31.88 Miliar IDR, terletak jauh di sebelah kanan puncak distribusi. Posisi mean ini berada di area yang frekuensinya sudah jauh lebih rendah, yang secara visual mengkonfirmasi bahwa nilai rata-rata keseluruhan ditarik ke atas oleh keberadaan sejumlah kecil perusahaan dengan pendapatan yang sangat tinggi. Hanya sangat sedikit perusahaan yang tercatat memiliki pendapatan di atas 40 Miliar IDR, dan ekor histogram yang memanjang hingga mendekati 60 Miliar IDR mewakili outlier atau perusahaan-perusahaan berkinerja ekstrem.
 Secara keseluruhan, histogram ini menggambarkan karakteristik industri yang didominasi oleh banyak perusahaan dengan skala pendapatan kecil hingga menengah, sementara hanya segelintir perusahaan besar yang menghasilkan pendapatan luar biasa tinggi, sehingga menciptakan kesenjangan yang signifikan dan membentuk distribusi yang tidak merata.
 
 **Interpretasi Box Plot**
+[Boxplot Pendapatan Tahunan](results/boxplot_Pendapatan_Tahunan_Miliar_IDR.png)
 Boxplot menunjukkan distribusi data Pendapatan Tahunan yang sangat miring ke arah nilai tinggi (positively skewed). Kotak (box) utama, yang mewakili 50% data tengah (antara kuartil pertama Q1 dan kuartil ketiga Q3), terlihat sangat pendek dan terkompresi ke bagian bawah skala, tepat di sekitar atau sedikit di atas nilai nol. Hal ini mengindikasikan bahwa separuh dari perusahaan-perusahaan dalam data memiliki pendapatan yang terkonsentrasi pada rentang yang sangat rendah dan sempit.
 
 Dari kotak tersebut, garis median (Q2) terlihat berada sangat dekat dengan dasar kotak, menguatkan kesimpulan bahwa sebagian besar nilai data berada di angka-angka rendah. Kemudian, dari kuartil ketiga (Q3) ke atas, terdapat "whisker" atau garis yang memanjang sangat jauh ke arah nilai positif. Panjang whisker atas yang ekstrem ini mewakili sebaran 25% data dengan pendapatan tertinggi, yang nilainya sangat berjauhan dari kelompok mayoritas.
@@ -130,11 +135,11 @@ Dari kotak tersebut, garis median (Q2) terlihat berada sangat dekat dengan dasar
 ### 5.2. Uji Normalitas
 - **Hasil Uji Shapiro-Wilk:**
 Nilai p-value: 1.497 × 10⁻¹⁴ (p-value ≈ 0.00000000000001497)
-
+dengan variabel Pendapatan Tahunan Miliar IDR
 Interpretasi:
 Nilai p-value yang sangat kecil (jauh di bawah 0.05) memberikan bukti statistik yang kuat untuk menolak hipotesis nol yang menyatakan bahwa data terdistribusi normal. Dengan kata lain, data Pendapatan_Tahunan_Miliar_IDR secara signifikan TIDAK terdistribusi normal. Implikasinya adalah metode statistik parametrik yang mengasumsikan distribusi normal (seperti uji-t, ANOVA, atau model regresi linear klasik) mungkin tidak sesuai untuk analisis data ini tanpa transformasi terlebih dahulu. Sebagai gantinya, dapat dipertimbangkan penggunaan metode non-parametrik atau melakukan transformasi data untuk mendekati distribusi normal.
 - **Plot Q-Q:**
-  - *Sematkan gambar plot dari folder /results...*
+  - [QQ Plot Uji Normalitas](results/qqplot_Pendapatan_Tahunan_Miliar_IDR.png)
   - *Interpretasi:*
     Berdasarkan plot Q-Q yang ditampilkan, titik-titik data tidak mengikuti garis lurus diagonal dengan baik. Polanya menunjukkan penyimpangan yang sistematis dari garis normal teoritis. Titik-titik data di ekor kanan (nilai tinggi) dan kiri (nilai rendah) menyimpang jauh dari garis, membentuk pola kurva yang jelas. Hal ini mengindikasikan bahwa distribusi data memiliki ekor yang lebih panjang daripada distribusi normal, atau disebut right-skewed (miring ke kanan). Artinya, terdapat beberapa nilai ekstrem tinggi yang menarik mean ke kanan, sementara mayoritas data terkonsentrasi pada nilai-nilai yang lebih rendah. Pola ini konsisten dengan hasil uji Shapiro-Wilk yang menolak kenormalan data.
 
@@ -151,7 +156,7 @@ p-value < 2.2 × 10⁻¹⁶ (sangat mendekati nol)
 Interpretasi:
 Nilai p-value yang sangat kecil ini (jauh di bawah α = 0.05) memberikan bukti statistik yang sangat kuat untuk menolak hipotesis nol yang menyatakan tidak ada korelasi antara kedua variabel. Dengan demikian, korelasi yang diamati sangat signifikan secara statistik dan hampir pasti bukan disebabkan oleh kebetulan semata. Kita dapat yakin dengan tingkat kepercayaan yang sangat tinggi bahwa hubungan positif yang kuat ini juga ada dalam populasi asal data.
 - **Visualisasi (Scatter Plot):**
-  - *Sematkan gambar plot dari folder /results...*
+  - [Scatter Plot Pendapatan vs Nilai Pelanggan](results/scatterplot_Pendapatan_Tahunan_Miliar_IDR_vs_Nilai_Pelanggan_Juta_IDR.png)
   - **Interpretasi:**
 Visualisasi scatter plot menunjukkan pola yang sangat jelas di mana titik-titik data membentuk tren linear positif yang hampir sempurna. Garis merah yang menunjukkan tren linear tampaknya akan melewati sebagian besar titik data dengan sangat baik, mengonfirmasi kekuatan hubungan yang diamati melalui koefisien korelasi.
 
@@ -174,7 +179,7 @@ Intercept (b₀ = 3.57): Ketika pendapatan tahunan perusahaan adalah 0 Miliar ID
 Model regresi linear sederhana ini menunjukkan hubungan yang hampir deterministik antara pendapatan tahunan dan nilai pelanggan perusahaan. Persamaan Nilai_Pelanggan = 3.57 + 3.02 × Pendapatan_Tahunan dapat digunakan untuk memprediksi nilai pelanggan dengan akurasi yang sangat tinggi (99.4%) berdasarkan pendapatan perusahaan. Dalam konteks bisnis, ini mengimplikasikan bahwa strategi untuk meningkatkan pendapatan perusahaan kemungkinan besar akan diiringi oleh peningkatan yang proporsional dalam nilai pelanggannya.
 
 - **Visualisasi (Garis Regresi pada Scatter Plot):**
-  - *Sematkan gambar plot dari folder /results...*
+  - [Garis Regresi Linear](results/regresi_Pendapatan_Tahunan_Miliar_IDR_vs_Nilai_Pelanggan_Juta_IDR.png)
 **Interpretasi Visual Garis Regresi Linear**
 **Plot scatter dengan garis regresi** secara visual mengkonfirmasi hubungan yang sangat kuat antara Pendapatan_Tahunan_Miliar_IDR (sumbu X) dan Nilai_Pelanggan_Juta_IDR (sumbu Y). Garis biru diagonal yang terbentuk menunjukkan tren linear positif yang hampir sempurna.
 Garis regresi yang digambarkan (kemungkinan dengan persamaan Y = 3.57 + 3.02×X) mewakili hubungan rata-rata terbaik antara kedua variabel. Setiap titik pada garis ini menunjukkan nilai prediksi Nilai_Pelanggan untuk suatu nilai Pendapatan_Tahunan tertentu berdasarkan model statistik. Jarak vertikal antara titik-titik data aktual (scatter points) dengan garis regresi mewakili *residual* atau error prediksi model.
@@ -207,7 +212,7 @@ Model regresi secara keseluruhan sangat signifikan, menunjukkan bahwa kombinasi 
 Residual standard error: 1.072:
 Tingkat error prediksi rata-rata model ini relatif kecil, mengindikasikan akurasi prediksi yang tinggi.
 
-#gambar plotnya
+[Plot Efek Parsial Regresi Berganda](results/avplot_regresi_tiga_variabel.png)
 inerpretasi plot: 
 Plot menunjukkan hubungan negatif yang jelas antara Pendapatan_Tahunan_Miliar_IDR (sumbu Y) dan Biaya_Akuisisi_Pelanggan_Juta_IDR (sumbu X) setelah mengontrol pengaruh Nilai_Pelanggan_Juta_IDR. Garis tren yang menurun dari kiri atas ke kanan bawah mengkonfirmasi koefisien regresi negatif (-2.5110) dari model. Artinya, setelah memperhitungkan nilai pelanggan, perusahaan dengan biaya akuisisi yang lebih tinggi cenderung memiliki pendapatan tahunan yang lebih rendah.
 Plot kedua menunjukkan hubungan positif yang sangat kuat antara Pendapatan_Tahunan_Miliar_IDR (sumbu Y) dan Nilai_Pelanggan_Juta_IDR (sumbu X) setelah mengontrol pengaruh Biaya_Akuisisi_Pelanggan_Juta_IDR. Garis tren yang meningkat tajam dari kiri bawah ke kanan atas selaras dengan koefisien regresi positif (1.1686). Ini mengindikasikan bahwa setelah memperhitungkan biaya akuisisi, perusahaan dengan nilai pelanggan yang lebih tinggi secara konsisten menghasilkan pendapatan tahunan yang lebih besar.
