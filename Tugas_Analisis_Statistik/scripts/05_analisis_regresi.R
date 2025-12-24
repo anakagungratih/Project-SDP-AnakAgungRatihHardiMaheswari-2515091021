@@ -1,40 +1,16 @@
 # =================================================================
 # SKRIP 5: ANALISIS REGRESI LINEAR SEDERHANA
 # =================================================================
-#
-# TUJUAN:
-# 1. Membuat model prediksi sederhana untuk satu variabel dependen (Y)
-#    berdasarkan satu variabel independen (X).
-# 2. Menginterpretasikan koefisien model (intercept dan slope).
-# 3. Mengevaluasi seberapa baik model tersebut (R-squared).
-#
-# INSTRUKSI:
-# 1. Pastikan Anda sudah menjalankan skrip '01_data_preparation.R'.
-# 2. Tentukan mana 'variabel_dependen' (Y, yang ingin diprediksi) dan
-#    'variabel_independen' (X, sebagai prediktor).
-# 3. Biasanya, variabel ini sama dengan yang digunakan dalam analisis korelasi.
-# =================================================================
-
-# -----------------------------------------------------------------
 # Langkah 0: Persiapan
 # -----------------------------------------------------------------
-# Jika variabel 'data_bersih' belum ada, jalankan skrip 01 terlebih dahulu.
 if (!exists("data_bersih")) {
   source("01_data_preparation.R")
   print("Menjalankan skrip 01_data_preparation.R...")
 }
 
-# Tentukan variabel dependen (Y) dan independen (X).
-# Y adalah variabel yang ingin Anda prediksi.
-# X adalah variabel yang Anda gunakan untuk memprediksi.
-# Contoh:
-# var_dependen <- "harga_rumah"
-# var_independen <- "luas_bangunan"
+var_dependen <- "Nilai_Pelanggan_Juta_IDR"
+var_independen <- "Pendapatan_Tahunan_Miliar_IDR"
 
-var_dependen <- "variabel_y"   # Seringkali sama dengan var_y dari skrip korelasi
-var_independen <- "variabel_x" # Seringkali sama dengan var_x dari skrip korelasi
-
-# Pastikan kolom yang dipilih ada di dalam data
 if(!var_dependen %in% names(data_bersih) || !var_independen %in% names(data_bersih)) {
   stop(paste("Satu atau kedua kolom ('", var_dependen, "', '", var_independen, "') tidak ditemukan. Periksa kembali nama kolom pada file 05_analisis_regresi.R"))
 }
@@ -42,16 +18,11 @@ if(!var_dependen %in% names(data_bersih) || !var_independen %in% names(data_bers
 # -----------------------------------------------------------------
 # Langkah 1: Membangun Model Regresi Linear
 # -----------------------------------------------------------------
-# Fungsi lm() (linear model) digunakan untuk membuat model regresi.
-# Formula `Y ~ X` dibaca "Y diprediksi oleh X".
-
-model_regresi <- lm(as.formula(paste(var_dependen, "~", var_independen)), data = data_bersih)
-
+model_regresi <- lm(as.formula(paste("Nilai_Pelanggan_Juta_IDR", "~", "Pendapatan_Tahunan_Miliar_IDR")), data = data_bersih)
 
 # -----------------------------------------------------------------
 # Langkah 2: Melihat dan Menginterpretasikan Hasil Model
 # -----------------------------------------------------------------
-# Fungsi summary() memberikan output yang sangat kaya informasi.
 summary_model <- summary(model_regresi)
 
 print("--- Ringkasan Model Regresi Linear ---")
@@ -60,10 +31,6 @@ print(summary_model)
 print("--- Interpretasi Penting dari Model ---")
 
 # A. Koefisien (Coefficients)
-# - (Intercept): Nilai Y ketika X = 0.
-# - [nama var_independen]: Slope, atau perubahan pada Y untuk setiap kenaikan 1 unit pada X.
-# - Pr(>|t|): p-value untuk koefisien. Jika <= 0.05, artinya variabel independen signifikan secara statistik dalam memprediksi variabel dependen.
-
 intercept_val <- coef(model_regresi)[1]
 slope_val <- coef(model_regresi)[2]
 
@@ -72,24 +39,16 @@ print(paste("   - Intercept (b0) =", round(intercept_val, 2), "-> Nilai prediksi
 print(paste("   - Slope (b1) =", round(slope_val, 2), "-> Setiap kenaikan 1 unit pada", var_independen, ", diprediksi akan mengubah", var_dependen, "sebesar", round(slope_val, 2), "unit."))
 
 # B. R-squared (Koefisien Determinasi)
-# - Adjusted R-squared: Persentase variasi dalam variabel dependen (Y) yang dapat
-#   dijelaskan oleh variabel independen (X) dalam model ini.
-# - Nilainya berkisar dari 0 hingga 1 (atau 0% hingga 100%).
-
 adj_r_squared <- summary_model$adj.r.squared
 print(paste("2. Adjusted R-squared =", round(adj_r_squared, 3), "atau", round(adj_r_squared * 100, 1), "%" ))
 print(paste("   - Artinya,", round(adj_r_squared * 100, 1), "% variasi pada", var_dependen, "dapat dijelaskan oleh", var_independen, "melalui model ini."))
 
-
 # -----------------------------------------------------------------
 # Langkah 3: Visualisasi Garis Regresi
 # -----------------------------------------------------------------
-# Kita bisa menggunakan scatter plot dari skrip sebelumnya dan menambahkan garis regresi dari model ini.
-# Garis ini adalah representasi visual dari persamaan model kita.
-
 plot_regresi <- ggplot(data_bersih, aes_string(x = var_independen, y = var_dependen)) +
-  geom_point(alpha = 0.6, color = "blue") +
-  geom_smooth(method = "lm", se = TRUE, color = "red") + # `se = TRUE` menampilkan confidence interval
+  geom_point(alpha = 0.6, color = "coral") +
+  geom_smooth(method = "lm", se = TRUE, color = "blue") + # `se = TRUE` menampilkan confidence interval
   labs(
     title = "Garis Regresi Linear",
     subtitle = paste0(
@@ -105,12 +64,144 @@ print(plot_regresi)
 
 # Menyimpan plot regresi ke folder 'results'
 ggsave(
-  filename = paste0("../results/plot_regresi_", var_independen, "_vs_", var_dependen, ".png"),
+  filename = paste0("C:/Users/anaka/OneDrive/Desktop/Semester 1/Statistika dan Probabilitas/Tugas_Analisis_Statistik/results/regresi_", var_independen, "_vs_", var_dependen, ".png"),
   plot = plot_regresi,
   width = 8,
   height = 6
 )
 print(paste("Plot regresi disimpan di folder 'results'."))
 
-# Pesan akhir
-print("Analisis regresi selesai. Ini adalah dasar dari pemodelan prediktif. Jangan lupa tulis interpretasi Anda di README.md.")
+
+
+#=================== analisis regresi 3 variabel ===============================
+
+install.packages("car")
+library(car)
+# Langkah 1: Membuat Model Regresi
+# Y  = Pendapatan_Tahunan_Miliar_IDR
+# X1 = Biaya_Akuisisi_Pelanggan_Juta_IDR
+# X2 = Nilai_Pelanggan_Juta_IDR
+# -----------------------------------------------------------------
+
+model_regresi <- lm(
+  Pendapatan_Tahunan_Miliar_IDR ~ 
+    Biaya_Akuisisi_Pelanggan_Juta_IDR + 
+    Nilai_Pelanggan_Juta_IDR,
+  data = data_bersih
+)
+
+# -----------------------------------------------------------------
+# Langkah 2: Ringkasan Model
+# -----------------------------------------------------------------
+cat("\n========================================\n")
+cat("RINGKASAN MODEL REGRESI\n")
+cat("========================================\n")
+summary_model <- summary(model_regresi)
+print(summary_model)
+
+# -----------------------------------------------------------------
+# Langkah 3: Persamaan Regresi
+# -----------------------------------------------------------------
+coef_model <- coef(model_regresi)
+
+b0 <- coef_model[1]
+b1 <- coef_model[2]
+b2 <- coef_model[3]
+
+cat("\n========================================\n")
+cat("PERSAMAAN REGRESI\n")
+cat("========================================\n")
+cat(
+  paste0(
+    "Y = ",
+    round(b0, 4),
+    " + ",
+    round(b1, 4),
+    " * Biaya_Akuisisi_Pelanggan_Juta_IDR",
+    " + ",
+    round(b2, 4),
+    " * Nilai_Pelanggan_Juta_IDR\n"
+  )
+)
+
+# -----------------------------------------------------------------
+# Langkah 4: Interpretasi Koefisien
+# -----------------------------------------------------------------
+cat("\n========================================\n")
+cat("INTERPRETASI KOEFISIEN REGRESI\n")
+cat("========================================\n")
+
+cat(
+  paste0(
+    "Intercept (b0 = ", round(b0, 4), "): ",
+    "Jika Biaya Akuisisi Pelanggan dan Nilai Pelanggan bernilai 0, ",
+    "maka Pendapatan Tahunan diperkirakan sebesar ",
+    round(b0, 4), " miliar IDR.\n\n"
+  )
+)
+
+cat(
+  paste0(
+    "Koefisien b1 (", round(b1, 4), "): ",
+    "Setiap kenaikan 1 juta IDR Biaya Akuisisi Pelanggan, ",
+    "dengan asumsi Nilai Pelanggan konstan, ",
+    "akan mengubah Pendapatan Tahunan sebesar ",
+    round(b1, 4), " miliar IDR.\n\n"
+  )
+)
+
+cat(
+  paste0(
+    "Koefisien b2 (", round(b2, 4), "): ",
+    "Setiap kenaikan 1 juta IDR Nilai Pelanggan, ",
+    "dengan asumsi Biaya Akuisisi Pelanggan konstan, ",
+    "akan meningkatkan Pendapatan Tahunan sebesar ",
+    round(b2, 4), " miliar IDR.\n"
+  )
+)
+
+# -----------------------------------------------------------------
+# Langkah 5: Evaluasi Model (R-squared)
+# -----------------------------------------------------------------
+r_squared <- summary_model$r.squared
+
+cat("\n========================================\n")
+cat("EVALUASI MODEL (R-SQUARED)\n")
+cat("========================================\n")
+
+cat(
+  paste0(
+    "Nilai R-squared = ", round(r_squared, 4), "\n"
+  )
+)
+
+cat(
+  paste0(
+    "Interpretasi: Sekitar ",
+    round(r_squared * 100, 2),
+    "% variasi Pendapatan Tahunan ",
+    "dapat dijelaskan oleh Biaya Akuisisi Pelanggan ",
+    "dan Nilai Pelanggan dalam model regresi ini.\n"
+  )
+)
+
+
+avPlots(model_regresi, main = "plot efek parsial")
+
+png(
+  filename = "C:/Users/anaka/OneDrive/Desktop/Semester 1/Statistika dan Probabilitas/Tugas_Analisis_Statistik/results/avplot_regresi_tiga_variabel.png",
+  width = 900,
+  height = 500
+)
+
+avPlots(model_regresi, main = "Added Variable Plots (Efek Parsial)")
+
+dev.off()
+
+print("AV Plot berhasil disimpan.")
+exists("avPlots")
+?avPlots
+help(avPlots)
+exists("avPlots")
+
+#============SELESAI================
