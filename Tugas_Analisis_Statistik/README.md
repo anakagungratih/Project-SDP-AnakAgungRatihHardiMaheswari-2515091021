@@ -181,8 +181,47 @@ Garis regresi yang digambarkan (kemungkinan dengan persamaan Y = 3.57 + 3.02×X)
 Visual menunjukkan bahwa hampir semua titik data berada sangat dekat dengan garis regresi, yang konsisten dengan nilai R-squared 99.4% yang sangat tinggi. Kemiringan (slope) garis yang curam sekitar 45 derajat mencerminkan koefisien regresi sebesar 3.02, yang berarti setiap peningkatan 1 unit pada pendapatan berkorespondensi dengan peningkatan sekitar 3 unit pada nilai pelanggan.
 Secara praktis, garis ini dapat digunakan sebagai alat prediksi visual: untuk memperkirakan nilai pelanggan suatu perusahaan, cukup lihat posisi pendapatan tahunannya pada sumbu X, lalu tarik garis vertikal ke atas hingga bertemu garis regresi, kemudian tarik garis horizontal ke kiri untuk membaca prediksi nilai pelanggan pada sumbu Y. Keakuratan prediksi ini sangat tinggi, seperti yang ditunjukkan oleh kedekatan titik-titik data dengan garis.
 
+
+**Analisis Regresi 3 Variabel**
+Analisis Regresi Linear Berganda: Tiga Variabel
+**Model Regresi**:
+Persamaan regresi:
+Pendapatan_Tahunan_Miliar_IDR = -0.6254 - 2.5110 × Biaya_Akuisisi_Pelanggan_Juta_IDR + 1.1686 × Nilai_Pelanggan_Juta_IDR
+
+Interpretasi koefisien:
+Intercept (b₀ = -0.6254): Ketika Biaya Akuisisi Pelanggan dan Nilai Pelanggan sama dengan nol, model memprediksi pendapatan tahunan sebesar -0.6254 Miliar IDR. Dalam konteks praktis, nilai negatif ini menunjukkan bahwa tanpa investasi pada akuisisi pelanggan dan tanpa nilai pelanggan yang ada, perusahaan tidak akan mampu menghasilkan pendapatan positif. Namun, interpretasi intercept harus dilakukan dengan hati-hati karena nilai nol pada kedua variabel prediktor mungkin berada di luar rentang data yang diamati.
+
+Koefisien b₁ (-2.5110): Setiap kenaikan 1 Juta IDR pada Biaya Akuisisi Pelanggan, dengan asumsi Nilai Pelanggan tetap konstan, akan menurunkan pendapatan tahunan sebesar 2.5110 Miliar IDR. Hubungan negatif ini menunjukkan bahwa biaya akuisisi pelanggan yang lebih tinggi justru berkorelasi dengan pendapatan yang lebih rendah, yang mungkin mengindikasikan inefisiensi dalam strategi akuisisi pelanggan.
+
+Koefisien b₂ (1.1686): Setiap kenaikan 1 Juta IDR pada Nilai Pelanggan, dengan asumsi Biaya Akuisisi Pelanggan tetap konstan, akan meningkatkan pendapatan tahunan sebesar 1.1686 Miliar IDR. Hubungan positif yang kuat ini mengkonfirmasi bahwa pelanggan dengan nilai ekonomi yang lebih tinggi secara signifikan berkontribusi terhadap pendapatan perusahaan.
+Evaluasi Model:
+Nilai R-squared (Multiple R-squared = 0.9971 atau 99.71%):
+
+Interpretasi: Nilai R-squared sebesar 99.71% menunjukkan bahwa model regresi berganda ini mampu menjelaskan 99.71% variasi dalam Pendapatan Tahunan berdasarkan variasi Biaya Akuisisi Pelanggan dan Nilai Pelanggan. Ini adalah nilai yang sangat tinggi dan menunjukkan bahwa kedua variabel prediktor tersebut hampir sempurna menjelaskan fluktuasi pendapatan tahunan perusahaan. Hanya sekitar 0.29% variasi pendapatan yang tidak dapat dijelaskan oleh model ini.
+
+Signifikansi Statistik:
+Semua koefisien sangat signifikan secara statistik (p-value < 2 × 10⁻¹⁶):
+Baik Biaya Akuisisi Pelanggan maupun Nilai Pelanggan memiliki pengaruh yang signifikan terhadap Pendapatan Tahunan, bahkan setelah mengontrol pengaruh variabel lainnya.
+F-statistic: 1.097 × 10⁵ dengan p-value < 2.2 × 10⁻¹⁶:
+Model regresi secara keseluruhan sangat signifikan, menunjukkan bahwa kombinasi Biaya Akuisisi Pelanggan dan Nilai Pelanggan memang merupakan prediktor yang sangat kuat untuk Pendapatan Tahunan.
+Residual standard error: 1.072:
+Tingkat error prediksi rata-rata model ini relatif kecil, mengindikasikan akurasi prediksi yang tinggi.
+
+#gambar plotnya
+inerpretasi plot: 
+Plot menunjukkan hubungan negatif yang jelas antara Pendapatan_Tahunan_Miliar_IDR (sumbu Y) dan Biaya_Akuisisi_Pelanggan_Juta_IDR (sumbu X) setelah mengontrol pengaruh Nilai_Pelanggan_Juta_IDR. Garis tren yang menurun dari kiri atas ke kanan bawah mengkonfirmasi koefisien regresi negatif (-2.5110) dari model. Artinya, setelah memperhitungkan nilai pelanggan, perusahaan dengan biaya akuisisi yang lebih tinggi cenderung memiliki pendapatan tahunan yang lebih rendah.
+Plot kedua menunjukkan hubungan positif yang sangat kuat antara Pendapatan_Tahunan_Miliar_IDR (sumbu Y) dan Nilai_Pelanggan_Juta_IDR (sumbu X) setelah mengontrol pengaruh Biaya_Akuisisi_Pelanggan_Juta_IDR. Garis tren yang meningkat tajam dari kiri bawah ke kanan atas selaras dengan koefisien regresi positif (1.1686). Ini mengindikasikan bahwa setelah memperhitungkan biaya akuisisi, perusahaan dengan nilai pelanggan yang lebih tinggi secara konsisten menghasilkan pendapatan tahunan yang lebih besar.
+
+Konsep "efek parsial" atau "ceteris paribus" (dengan hal lain dianggap tetap) divisualisasikan dengan jelas dalam plot ini:
+- Setiap plot mengisolasi pengaruh satu variabel prediktor dengan mengontrol variabel lainnya
+- Titik-titik yang lebih tersebar menunjukkan variasi yang tidak dapat dijelaskan sepenuhnya oleh model
+- Kedekatan titik data dengan garis tren mengindikasikan kekuatan hubungan parsial
+
+
+
 ---
 
 ## 6. Kesimpulan
-
-Rangkum temuan utama dari analisis Anda dalam beberapa kalimat. Apa wawasan paling penting yang Anda peroleh?
+Dari analisis data 650 startup SaaS ini, saya menemukan cerita yang sangat menarik tentang bagaimana bisnis teknologi di Indonesia bekerja. Ternyata, rahasia pendapatan tinggi tidak terletak pada besarnya biaya akuisisi pelanggan, melainkan pada seberapa bernilai pelanggan yang didapat dan seberapa efisien cara mendapatkannya.
+Wawasan kunci yang muncul: nilai pelanggan adalah pendorong utama pendapatan (setiap kenaikan 1 juta nilai pelanggan meningkatkan pendapatan 1.17 miliar), sementara biaya akuisisi yang tinggi justru merugikan (setiap tambahan 1 juta biaya akuisisi mengurangi pendapatan 2.51 miliar). Artinya, startup yang sukses bukan yang menghamburkan uang untuk mendapatkan pelanggan, tapi yang pandai mendapatkan pelanggan bernilai tinggi dengan cara yang efisien.
+Industri ini juga memperlihatkan kesenjangan yang ekstrem: mayoritas startup bergerak di skala kecil (pendapatan paling umum hanya 1.87 miliar setahun), namun segelintir "unicorn" lokal dengan pendapatan hingga 66.89 miliar menarik rata-rata seluruh industri naik. Pola ini terlihat jelas dari distribusi data yang sangat miring ke kanan, dimana 50% startup terkonsentrasi di pendapatan rendah, sementara 25% teratas memiliki performa jauh lebih baik.
