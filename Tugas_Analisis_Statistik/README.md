@@ -63,7 +63,7 @@ Nilai Tengah (Median): 31,30 Miliar IDR
 Nilai Paling Sering Muncul (Modus): 1,87 Miliar IDR
 
 Interpretasi histogram
-[Histogram Pendapatan Tahunan](results/histogram_Pendapatan_Tahunan_Miliar_IDR.png)
+![Histogram Pendapatan Tahunan](results/histogram_Pendapatan_Tahunan_Miliar_IDR.png)
 
 
 Rata-rata pendapatan tahunan berada pada 31,88 Miliar IDR dengan nilai tengah 31,30 Miliar IDR, menunjukkan distribusi data yang relatif simetris. Namun, nilai modus yang jauh lebih rendah (1,87 Miliar IDR) mengindikasikan bahwa sebagian besar perusahaan memiliki pendapatan tahunan yang rendah. Perbedaan signifikan antara mean dan modus menunjukkan adanya beberapa perusahaan dengan pendapatan sangat tinggi yang menarik nilai rata-rata ke atas.
@@ -129,7 +129,7 @@ Rata-rata (mean) pendapatan, yang ditunjukkan oleh garis merah putus-putus pada 
 Secara keseluruhan, histogram ini menggambarkan karakteristik industri yang didominasi oleh banyak perusahaan dengan skala pendapatan kecil hingga menengah, sementara hanya segelintir perusahaan besar yang menghasilkan pendapatan luar biasa tinggi, sehingga menciptakan kesenjangan yang signifikan dan membentuk distribusi yang tidak merata.
 
 **Interpretasi Box Plot**
-[Boxplot Pendapatan Tahunan](results/boxplot_Pendapatan_Tahunan_Miliar_IDR.png)
+![Boxplot Pendapatan Tahunan](results/boxplot_Pendapatan_Tahunan_Miliar_IDR.png)
 
 
 Boxplot menunjukkan distribusi data Pendapatan Tahunan yang sangat miring ke arah nilai tinggi (positively skewed). Kotak (box) utama, yang mewakili 50% data tengah (antara kuartil pertama Q1 dan kuartil ketiga Q3), terlihat sangat pendek dan terkompresi ke bagian bawah skala, tepat di sekitar atau sedikit di atas nilai nol. Hal ini mengindikasikan bahwa separuh dari perusahaan-perusahaan dalam data memiliki pendapatan yang terkonsentrasi pada rentang yang sangat rendah dan sempit.
@@ -143,7 +143,7 @@ dengan variabel Pendapatan Tahunan Miliar IDR
 Interpretasi:
 Nilai p-value yang sangat kecil (jauh di bawah 0.05) memberikan bukti statistik yang kuat untuk menolak hipotesis nol yang menyatakan bahwa data terdistribusi normal. Dengan kata lain, data Pendapatan_Tahunan_Miliar_IDR secara signifikan TIDAK terdistribusi normal. Implikasinya adalah metode statistik parametrik yang mengasumsikan distribusi normal (seperti uji-t, ANOVA, atau model regresi linear klasik) mungkin tidak sesuai untuk analisis data ini tanpa transformasi terlebih dahulu. Sebagai gantinya, dapat dipertimbangkan penggunaan metode non-parametrik atau melakukan transformasi data untuk mendekati distribusi normal.
 - **Plot Q-Q:**
-  - [QQ Plot Uji Normalitas](results/qqplot_Pendapatan_Tahunan_Miliar_IDR.png)
+  - ![QQ Plot Uji Normalitas](results/qqplot_Pendapatan_Tahunan_Miliar_IDR.png)
 
 
    - *Interpretasi:*
@@ -162,7 +162,7 @@ p-value < 2.2 × 10⁻¹⁶ (sangat mendekati nol)
 Interpretasi:
 Nilai p-value yang sangat kecil ini (jauh di bawah α = 0.05) memberikan bukti statistik yang sangat kuat untuk menolak hipotesis nol yang menyatakan tidak ada korelasi antara kedua variabel. Dengan demikian, korelasi yang diamati sangat signifikan secara statistik dan hampir pasti bukan disebabkan oleh kebetulan semata. Kita dapat yakin dengan tingkat kepercayaan yang sangat tinggi bahwa hubungan positif yang kuat ini juga ada dalam populasi asal data.
 - **Visualisasi (Scatter Plot):**
-  - [Scatter Plot Pendapatan vs Nilai Pelanggan]
+  - ![Scatter Plot Pendapatan vs Nilai Pelanggan]
   (results/scatterplot_Pendapatan_Tahunan_Miliar_IDR_vs_Nilai_Pelanggan_Juta_IDR.png)
 
 
@@ -188,7 +188,7 @@ Intercept (b₀ = 3.57): Ketika pendapatan tahunan perusahaan adalah 0 Miliar ID
 Model regresi linear sederhana ini menunjukkan hubungan yang hampir deterministik antara pendapatan tahunan dan nilai pelanggan perusahaan. Persamaan Nilai_Pelanggan = 3.57 + 3.02 × Pendapatan_Tahunan dapat digunakan untuk memprediksi nilai pelanggan dengan akurasi yang sangat tinggi (99.4%) berdasarkan pendapatan perusahaan. Dalam konteks bisnis, ini mengimplikasikan bahwa strategi untuk meningkatkan pendapatan perusahaan kemungkinan besar akan diiringi oleh peningkatan yang proporsional dalam nilai pelanggannya.
 
 - **Visualisasi (Garis Regresi pada Scatter Plot):**
-  - [Garis Regresi Linear](results/regresi_Pendapatan_Tahunan_Miliar_IDR_vs_Nilai_Pelanggan_Juta_IDR.png)
+  - ![Garis Regresi Linear](results/regresi_Pendapatan_Tahunan_Miliar_IDR_vs_Nilai_Pelanggan_Juta_IDR.png)
 
 
 **Interpretasi Visual Garis Regresi Linear**
@@ -223,7 +223,7 @@ Model regresi secara keseluruhan sangat signifikan, menunjukkan bahwa kombinasi 
 Residual standard error: 1.072:
 Tingkat error prediksi rata-rata model ini relatif kecil, mengindikasikan akurasi prediksi yang tinggi.
 
-[Plot Efek Parsial Regresi Berganda](results/avplot_regresi_tiga_variabel.png)
+![Plot Efek Parsial Regresi Berganda](results/avplot_regresi_tiga_variabel.png)
 
 
 inerpretasi plot: 
