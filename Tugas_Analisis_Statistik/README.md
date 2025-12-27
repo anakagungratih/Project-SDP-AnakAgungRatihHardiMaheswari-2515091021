@@ -99,7 +99,7 @@ Interpretasi:
 Distribusi nilai pelanggan mendekati simetris dengan mean (100,02 Juta IDR) dan median (98,71 Juta IDR) yang hampir sama. Namun, modus yang sangat rendah (10,11 Juta IDR) mengisyaratkan bahwa mayoritas pelanggan memiliki nilai ekonomi yang rendah. Perbedaan besar antara modus dengan mean dan median menunjukkan keberadaan segmen kecil pelanggan dengan nilai sangat tinggi yang secara signifikan meningkatkan nilai rata-rata keseluruhan.
 
 **Gambar histogram**
-![Histogram Biaya Akuisisi Pelanggan]
+![Histogram Biaya Akuisisi Pelanggan](results/histogram_Nilai_Pelanggan_Juta_IDR.png)
 intepretasi :
 Histogram distribusi Nilai Pelanggan menunjukkan pola yang cukup berbeda namun tetap konsisten dengan karakteristik industri startup SaaS yang telah terlihat sebelumnya. Sebagian besar pelanggan startup memiliki nilai ekonomi yang relatif rendah, terkonsentrasi pada rentang 0-50 Juta IDR dengan frekuensi tertinggi mencapai sekitar 40 observasi.
 Garis merah putus-putus yang menandai rata-rata nilai pelanggan sebesar 100,02 Juta IDR memberikan wawasan yang penting. Posisi mean yang tepat di 100,02 Juta IDR hanya 0,02 Juta IDR di atas angka bulat 100 terletak di area yang frekuensinya sudah mulai menurun, namun tidak sedrastis pada dua variabel sebelumnya. Ketepatan angka ini (bukan pembulatan kasar) menunjukkan perhitungan statistik yang presisi dalam analisis.
