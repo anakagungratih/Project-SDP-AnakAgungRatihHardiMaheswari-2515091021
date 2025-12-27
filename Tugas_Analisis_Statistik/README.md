@@ -50,9 +50,10 @@ Di bagian ini, mahasiswa diharapkan untuk menyajikan dan menginterpretasikan has
   Tabel Ringkasan:
 
 **Variabel**                        
-Pendapatan_Tahunan_Miliar_IDR         
-Biaya_Akuisisi_Pelanggan_Juta_IDR	   
-Nilai_Pelanggan_Juta_IDR	           
+Pendapatan_Tahunan_Miliar_IDR  -> (variabel utama) untuk analisis deskriptif secara menyeluruh atau lengkapnya saya menggunakan variabel Pendapatan_Tahunan_Miliar_IDR, namun saya juga menggunakan 2 variabel tambahan untuk mencoba code shortcut dalam menghitung mean median, dan modus 3 variabel sekaligus.
+
+Biaya_Akuisisi_Pelanggan_Juta_IDR -> variabel tambahan (percobaan)   
+Nilai_Pelanggan_Juta_IDR -> variabel tambahan (percobaan)
 
 **NOTE** ( pada analisis deskriptif ini saya menggunakan 2 metode untuk mencari nilai mean, median, dan modus, metode pertama dengan saya mencari secara manual yang menggunakan script yang menginput variabel satu per satu, lalu metode kedua saya menggunakan shorcut dengan 1 script bisa mendapat mean, median, dan modus dari 3 variabel sekaligus, dan hasilnya sama seperti cara manual )
 
@@ -61,11 +62,14 @@ Nilai_Pelanggan_Juta_IDR
 Rata-rata (Mean): 31,88 Miliar IDR
 Nilai Tengah (Median): 31,30 Miliar IDR
 Nilai Paling Sering Muncul (Modus): 1,87 Miliar IDR
+Intepretasi :
+Berdasarkan hasil analisis statistik deskriptif, distribusi pendapatan tahunan startup SaaS menunjukkan karakteristik yang menarik.
+Rata-rata pendapatan tahunan sebesar 31,88 Miliar IDR menunjukkan nilai tengah aritmatika dari seluruh sampel. Namun, yang lebih menarik adalah perbandingan ketiga ukuran pemusatan ini.
+Median sebesar 31,30 Miliar IDR yang hampir sama dengan mean (hanya berbeda 0,58 Miliar IDR) mengindikasikan bahwa secara umum, distribusi data cukup seimbang di sekitar nilai tengah. Jarak yang kecil antara mean dan median menunjukkan tidak ada skewness (kemencengan) yang ekstrem.
+Namun, modus yang jauh lebih rendah yaitu 1,87 Miliar IDR mengungkapkan cerita yang berbeda. Nilai ini menunjukkan bahwa pendapatan tahunan yang paling sering muncul di antara startup-startup ini justru berada di level yang sangat rendah — hampir 30 Miliar IDR lebih rendah dari rata-ratanya.
 
 Interpretasi histogram
 ![Histogram Pendapatan Tahunan](results/histogram_Pendapatan_Tahunan_Miliar_IDR.png)
-
-
 Rata-rata pendapatan tahunan berada pada 31,88 Miliar IDR dengan nilai tengah 31,30 Miliar IDR, menunjukkan distribusi data yang relatif simetris. Namun, nilai modus yang jauh lebih rendah (1,87 Miliar IDR) mengindikasikan bahwa sebagian besar perusahaan memiliki pendapatan tahunan yang rendah. Perbedaan signifikan antara mean dan modus menunjukkan adanya beberapa perusahaan dengan pendapatan sangat tinggi yang menarik nilai rata-rata ke atas.
 Histogram ini menunjukkan distribusi frekuensi pendapatan tahunan dari 650 startup SaaS dalam dataset. Visualisasi mengungkap pola yang sangat jelas: sebagian besar startup berada di skala pendapatan yang rendah.
 Puncak histogram mencapai frekuensi sekitar 40 observasi pada rentang pendapatan 0-20 Miliar IDR, menandakan bahwa mayoritas perusahaan memiliki kinerja finansial yang masih dalam tahap awal atau menengah. Setelah melewati 20 Miliar IDR, frekuensi observasi turun secara drastis, membentuk "ekor panjang" di sisi kanan.
@@ -79,6 +83,12 @@ Nilai Paling Sering Muncul (Modus): 3,21 Juta IDR
 
 Interpretasi:
 Nilai mean (33,50 Juta IDR) dan median (33,08 Juta IDR) yang cukup berdekatan menandakan distribusi biaya akuisisi pelanggan yang seimbang secara umum. Namun, modus yang jauh lebih rendah (3,21 Juta IDR) menunjukkan bahwa nilai biaya akuisisi yang paling sering terjadi berada pada tingkat yang rendah. Hal ini mengindikasikan adanya variasi data yang signifikan, di mana sebagian besar pelanggan diperoleh dengan biaya rendah, tetapi terdapat beberapa kasus akuisisi dengan biaya yang sangat tinggi.
+Gambar Histogram : 
+![Histogram Biaya Akuisisi Pelanggan](results/histogram_Biaya_Akuisisi_Pelanggan_Juta_IDR.png)
+interpretasi :
+Histogram distribusi Biaya Akuisisi Pelanggan menunjukkan pola yang sangat mirip dengan distribusi pendapatan tahunan, mengungkapkan karakteristik industri startup SaaS yang menarik. Sebagian besar startup (sekitar 40 observasi) berhasil mengakuisisi pelanggan dengan biaya yang relatif efisien, terkonsentrasi pada rentang 0-20 Juta IDR per pelanggan.
+Garis merah putus-putus yang menandai rata-rata biaya akuisisi sebesar 33,5 Juta IDR berada di area dengan frekuensi yang sudah cukup rendah. Posisi mean yang jauh dari puncak distribusi ini menunjukkan adanya beberapa startup dengan biaya akuisisi yang sangat tinggi (di atas 40-60 Juta IDR) yang menarik nilai rata-rata ke atas, membentuk ekor panjang di sisi kanan histogram.
+Pola "long-tail" atau distribusi miring ke kanan ini konsisten dengan temuan sebelumnya pada pendapatan tahunan, mengindikasikan bahwa industri startup SaaS memang dicirikan oleh fenomena di mana sebagian besar perusahaan beroperasi pada skala kecil atau menengah, sementara segelintir perusahaan menunjukkan pola yang sangat berbeda.
 
 3. Nilai Pelanggan (Juta IDR)
 Rata-rata (Mean): 100,02 Juta IDR
@@ -88,19 +98,28 @@ Nilai Paling Sering Muncul (Modus): 10,11 Juta IDR
 Interpretasi:
 Distribusi nilai pelanggan mendekati simetris dengan mean (100,02 Juta IDR) dan median (98,71 Juta IDR) yang hampir sama. Namun, modus yang sangat rendah (10,11 Juta IDR) mengisyaratkan bahwa mayoritas pelanggan memiliki nilai ekonomi yang rendah. Perbedaan besar antara modus dengan mean dan median menunjukkan keberadaan segmen kecil pelanggan dengan nilai sangat tinggi yang secara signifikan meningkatkan nilai rata-rata keseluruhan.
 
+**Gambar histogram**
+![Histogram Biaya Akuisisi Pelanggan](results/histogram_Nilai_Pelanggan_Juta_IDR.png)
+intepretasi :
+Histogram distribusi Nilai Pelanggan menunjukkan pola yang cukup berbeda namun tetap konsisten dengan karakteristik industri startup SaaS yang telah terlihat sebelumnya. Sebagian besar pelanggan startup memiliki nilai ekonomi yang relatif rendah, terkonsentrasi pada rentang 0-50 Juta IDR dengan frekuensi tertinggi mencapai sekitar 40 observasi.
+Garis merah putus-putus yang menandai rata-rata nilai pelanggan sebesar 100,02 Juta IDR memberikan wawasan yang penting. Posisi mean yang tepat di 100,02 Juta IDR hanya 0,02 Juta IDR di atas angka bulat 100 terletak di area yang frekuensinya sudah mulai menurun, namun tidak sedrastis pada dua variabel sebelumnya. Ketepatan angka ini (bukan pembulatan kasar) menunjukkan perhitungan statistik yang presisi dalam analisis.
+Yang menarik adalah bagaimana mean sebesar 100,02 Juta IDR ini jauh lebih tinggi dari area konsentrasi data utama (0-50 Juta IDR), mengkonfirmasi adanya pengaruh kuat dari segmen pelanggan bernilai tinggi yang menarik rata-rata ke atas. Ekor distribusi yang memanjang hingga mendekati 200 Juta IDR menunjukkan keberadaan pelanggan dengan nilai ekonomi yang sangat premium.
+Histogram ini secara visual menjelaskan mengapa dalam analisis regresi sebelumnya nilai pelanggan memiliki koefisien positif sebesar 1,1686—karena variasi nilai pelanggan antar startup sangat luas, dari yang bernilai rendah hingga sangat tinggi. Perbedaan dalam komposisi portofolio pelanggan inilah yang menjadi pembeda utama kinerja perusahaan, di mana startup dengan basis pelanggan bernilai tinggi secara konsisten menunjukkan performa finansial yang lebih baik.
+Presisi angka 100,02 (bukan 100 atau 100,0) juga mengindikasikan bahwa perhitungan statistik dalam analisis ini dilakukan dengan ketelitian yang tinggi, memberikan keyakinan lebih pada validitas temuan-temuan yang dihasilkan.
 
-**Interpretasi Ukuran Sebaran Data ((menggunakan variabel Pendapatan_Tahunan_Miliar_IDR**
+
+**Interpretasi Ukuran Sebaran Data ((menggunakan variabel Pendapatan_Tahunan_Miliar_IDR))**
 - Pendapatan Tahunan (Miliar IDR)
 - Ringkasan Ukuran Sebaran:
 - Range (Rentang): 1.00 - 66.89 Miliar IDR
 - Standar Deviasi: 19.79 Miliar IDR
-   - Ringkasan 5 Angka:
-   - Minimum: 1.00 Miliar IDR
-   - Kuartil 1 (Q1): 14.31 Miliar IDR
-   - Median (Q2): 31.30 Miliar IDR
-   - Kuartil 3 (Q3): 49.04 Miliar IDR
-   - Maksimum: 66.89 Miliar IDR
-   - Rata-rata (Mean): 31.88 Miliar IDR
+     Ringkasan 5 Angka:
+      - Minimum: 1.00 Miliar IDR
+      - Kuartil 1 (Q1): 14.31 Miliar IDR
+      - Median (Q2): 31.30 Miliar IDR
+      - Kuartil 3 (Q3): 49.04 Miliar IDR
+      - Maksimum: 66.89 Miliar IDR
+      - Rata-rata (Mean): 31.88 Miliar IDR
 
 Interpretasi:
 1. Rentang Data (Range):
@@ -183,14 +202,12 @@ Intercept (b₀ = 3.57): Ketika pendapatan tahunan perusahaan adalah 0 Miliar ID
 
 - **Evaluasi Model (R-squared):**
 - Nilai R-squared (Adj. R-squared = 0.994 atau 99.4%):
-- Interpretasi: Nilai Adjusted R-squared sebesar 99.4% menunjukkan bahwa model regresi ini mampu menjelaskan 99.4% variasi     dalam nilai pelanggan berdasarkan variasi pendapatan tahunan. Ini adalah nilai yang sangat tinggi dan menunjukkan bahwa      model tersebut memiliki kekuatan prediktif yang luar biasa. Hanya sekitar 0.6% variasi nilai pelanggan yang tidak dapat      dijelaskan oleh pendapatan tahunan dalam model ini.
+- Interpretasi: Nilai Adjusted R-squared sebesar 99.4% menunjukkan bahwa model regresi ini mampu menjelaskan 99.4% variasi dalam nilai pelanggan berdasarkan variasi pendapatan tahunan. Ini adalah nilai yang sangat tinggi dan menunjukkan bahwa model tersebut memiliki kekuatan prediktif yang luar biasa. Hanya sekitar 0.6% variasi nilai pelanggan yang tidak dapat dijelaskan oleh pendapatan tahunan dalam model ini.
 
 Model regresi linear sederhana ini menunjukkan hubungan yang hampir deterministik antara pendapatan tahunan dan nilai pelanggan perusahaan. Persamaan Nilai_Pelanggan = 3.57 + 3.02 × Pendapatan_Tahunan dapat digunakan untuk memprediksi nilai pelanggan dengan akurasi yang sangat tinggi (99.4%) berdasarkan pendapatan perusahaan. Dalam konteks bisnis, ini mengimplikasikan bahwa strategi untuk meningkatkan pendapatan perusahaan kemungkinan besar akan diiringi oleh peningkatan yang proporsional dalam nilai pelanggannya.
 
 - **Visualisasi (Garis Regresi pada Scatter Plot):**
   - ![Garis Regresi Linear](results/regresi_Pendapatan_Tahunan_Miliar_IDR_vs_Nilai_Pelanggan_Juta_IDR.png)
-
-
 **Interpretasi Visual Garis Regresi Linear**
 **Plot scatter dengan garis regresi** secara visual mengkonfirmasi hubungan yang sangat kuat antara Pendapatan_Tahunan_Miliar_IDR (sumbu X) dan Nilai_Pelanggan_Juta_IDR (sumbu Y). Garis biru diagonal yang terbentuk menunjukkan tren linear positif yang hampir sempurna.
 Garis regresi yang digambarkan (kemungkinan dengan persamaan Y = 3.57 + 3.02×X) mewakili hubungan rata-rata terbaik antara kedua variabel. Setiap titik pada garis ini menunjukkan nilai prediksi Nilai_Pelanggan untuk suatu nilai Pendapatan_Tahunan tertentu berdasarkan model statistik. Jarak vertikal antara titik-titik data aktual (scatter points) dengan garis regresi mewakili *residual* atau error prediksi model.
@@ -242,4 +259,4 @@ Konsep "efek parsial" atau "ceteris paribus" (dengan hal lain dianggap tetap) di
 ## 6. Kesimpulan
 Dari analisis data 650 startup SaaS ini, saya menemukan cerita yang sangat menarik tentang bagaimana bisnis teknologi di Indonesia bekerja. Ternyata, rahasia pendapatan tinggi tidak terletak pada besarnya biaya akuisisi pelanggan, melainkan pada seberapa bernilai pelanggan yang didapat dan seberapa efisien cara mendapatkannya.
 Wawasan kunci yang muncul: nilai pelanggan adalah pendorong utama pendapatan (setiap kenaikan 1 juta nilai pelanggan meningkatkan pendapatan 1.17 miliar), sementara biaya akuisisi yang tinggi justru merugikan (setiap tambahan 1 juta biaya akuisisi mengurangi pendapatan 2.51 miliar). Artinya, startup yang sukses bukan yang menghamburkan uang untuk mendapatkan pelanggan, tapi yang pandai mendapatkan pelanggan bernilai tinggi dengan cara yang efisien.
-Industri ini juga memperlihatkan kesenjangan yang ekstrem: mayoritas startup bergerak di skala kecil (pendapatan paling umum hanya 1.87 miliar setahun), namun segelintir "unicorn" lokal dengan pendapatan hingga 66.89 miliar menarik rata-rata seluruh industri naik. Pola ini terlihat jelas dari distribusi data yang sangat miring ke kanan, dimana 50% startup terkonsentrasi di pendapatan rendah, sementara 25% teratas memiliki performa jauh lebih baik.
+Industri ini juga memperlihatkan kesenjangan yang ekstrem: mayoritas startup bergerak di skala kecil (pendapatan paling umum hanya 1.87 miliar setahun), namun segelintir individu lokal dengan pendapatan hingga 66.89 miliar menarik rata-rata seluruh industri naik. Pola ini terlihat jelas dari distribusi data yang sangat miring ke kanan, dimana 50% startup terkonsentrasi di pendapatan rendah, sementara 25% teratas memiliki performa jauh lebih baik.
