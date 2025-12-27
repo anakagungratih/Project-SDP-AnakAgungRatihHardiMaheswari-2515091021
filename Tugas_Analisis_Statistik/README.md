@@ -89,7 +89,7 @@ Interpretasi:
 Distribusi nilai pelanggan mendekati simetris dengan mean (100,02 Juta IDR) dan median (98,71 Juta IDR) yang hampir sama. Namun, modus yang sangat rendah (10,11 Juta IDR) mengisyaratkan bahwa mayoritas pelanggan memiliki nilai ekonomi yang rendah. Perbedaan besar antara modus dengan mean dan median menunjukkan keberadaan segmen kecil pelanggan dengan nilai sangat tinggi yang secara signifikan meningkatkan nilai rata-rata keseluruhan.
 
 
-**Interpretasi Ukuran Sebaran Data**
+**Interpretasi Ukuran Sebaran Data ((menggunakan variabel Pendapatan_Tahunan_Miliar_IDR**
 - Pendapatan Tahunan (Miliar IDR)
 - Ringkasan Ukuran Sebaran:
 - Range (Rentang): 1.00 - 66.89 Miliar IDR
