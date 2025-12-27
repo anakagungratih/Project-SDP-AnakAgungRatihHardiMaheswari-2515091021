@@ -178,8 +178,7 @@ Nilai p-value yang sangat kecil (jauh di bawah 0.05) memberikan bukti statistik 
 Interpretasi:
    Nilai p-value yang sangat kecil ini (jauh di bawah α = 0.05) memberikan bukti statistik yang sangat kuat untuk menolak hipotesis nol yang menyatakan tidak ada korelasi antara kedua variabel. Dengan demikian, korelasi yang diamati sangat signifikan secara statistik dan hampir pasti bukan disebabkan oleh kebetulan semata. Kita dapat yakin dengan tingkat kepercayaan yang sangat tinggi bahwa hubungan positif yang kuat ini juga ada dalam populasi asal data.
 - **Visualisasi (Scatter Plot):**
-  - ![Scatter Plot Pendapatan vs Nilai Pelanggan]
-  (results/scatterplot_Pendapatan_Tahunan_Miliar_IDR_vs_Nilai_Pelanggan_Juta_IDR.png)
+  - ![Scatter Plot Pendapatan vs Nilai Pelanggan](results/scatterplot_Pendapatan_Tahunan_Miliar_IDR_vs_Nilai_Pelanggan_Juta_IDR.png)
    - **Interpretasi:**
    Visualisasi scatter plot menunjukkan pola yang sangat jelas di mana titik-titik data membentuk tren linear positif yang hampir sempurna. Garis merah yang menunjukkan tren linear tampaknya akan melewati sebagian besar titik data dengan sangat baik, mengonfirmasi kekuatan hubungan yang diamati melalui koefisien korelasi.
 
