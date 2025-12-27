@@ -57,7 +57,7 @@ mode_value <- get_mode(data_bersih[["Pendapatan_Tahunan_Miliar_IDR"]])
 print(paste("Modus dari", "Pendapatan_Tahunan_Miliar_IDR", ":", mode_value))
 
 
-#SHORTCUT 
+#SHORTCUT (ini code yang saya pribadi tambahkan, untuk mempermudah jika ingin menghitung banyak variabel)
 vars_numerik <- c(
   "Pendapatan_Tahunan_Miliar_IDR",
   "Biaya_Akuisisi_Pelanggan_Juta_IDR",
@@ -125,6 +125,68 @@ ggsave(
   height = 6
 )
 print(paste("Histogram disimpan di folder 'results' dengan nama histogram_", kolom_analisis, ".png", sep=""))
+
+
+#histogram Biaya_Akuisisi_Pelanggan_Juta_IDR
+mean_value <- mean(data_bersih$Biaya_Akuisisi_Pelanggan_Juta_IDR, na.rm = TRUE)
+
+hist_plot <- ggplot(data_bersih, aes_string(x = "Biaya_Akuisisi_Pelanggan_Juta_IDR")) +
+  geom_histogram(bins = 20, fill = "yellow", color = "white") +
+  geom_vline(aes(xintercept = mean_value), color = "red", linetype = "dashed", size = 1) +
+  labs(
+    title = paste("Histogram dari", "Biaya_Akuisisi_Pelanggan_Juta_IDR"),
+    subtitle = paste("Garis merah putus-putus menunjukkan Mean =", round(mean_value, 2)),
+    x = kolom_analisis,
+    y = "Frekuensi"
+  ) +
+  theme_minimal()
+
+print(hist_plot)
+
+#simpan histonya
+ggsave(
+  filename = paste0(
+    "C:/Users/anaka/OneDrive/Desktop/Semester 1/Statistika dan Probabilitas/Tugas_Analisis_Statistik/results/histogram_",
+    "Biaya_Akuisisi_Pelanggan_Juta_IDR",
+    ".png"
+  ),
+  plot = hist_plot,
+  width = 8,
+  height = 6
+)
+print(paste("Histogram disimpan di folder 'results' dengan nama histogram_", "Biaya_Akuisisi_Pelanggan_Juta_IDR", ".png", sep=""))
+
+
+#histo Nilai_Pelanggan_Juta_IDR
+
+mean_value <- mean(data_bersih$Nilai_Pelanggan_Juta_IDR, na.rm = TRUE)
+
+hist_plot <- ggplot(data_bersih, aes_string(x = "Nilai_Pelanggan_Juta_IDR")) +
+  geom_histogram(bins = 20, fill = "lightgreen", color = "white") +
+  geom_vline(aes(xintercept = mean_value), color = "red", linetype = "dashed", size = 1) +
+  labs(
+    title = paste("Histogram dari", "Nilai_Pelanggan_Juta_IDR"),
+    subtitle = paste("Garis merah putus-putus menunjukkan Mean =", round(mean_value, 2)),
+    x = kolom_analisis,
+    y = "Frekuensi"
+  ) +
+  theme_minimal()
+
+print(hist_plot)
+
+#simpan histo nya
+ggsave(
+  filename = paste0(
+    "C:/Users/anaka/OneDrive/Desktop/Semester 1/Statistika dan Probabilitas/Tugas_Analisis_Statistik/results/histogram_",
+    "Nilai_Pelanggan_Juta_IDR",
+    ".png"
+  ),
+  plot = hist_plot,
+  width = 8,
+  height = 6
+)
+print(paste("Histogram disimpan di folder 'results' dengan nama histogram_", "Nilai_Pelanggan_Juta_IDR", ".png", sep=""))
+
 
 # B. Boxplot
 # Boxplot berguna untuk mengidentifikasi pencilan (outliers) dan melihat sebaran kuartil.
