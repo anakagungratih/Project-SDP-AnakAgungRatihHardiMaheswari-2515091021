@@ -84,7 +84,7 @@ Nilai Paling Sering Muncul (Modus): 3,21 Juta IDR
 Interpretasi:
 Nilai mean (33,50 Juta IDR) dan median (33,08 Juta IDR) yang cukup berdekatan menandakan distribusi biaya akuisisi pelanggan yang seimbang secara umum. Namun, modus yang jauh lebih rendah (3,21 Juta IDR) menunjukkan bahwa nilai biaya akuisisi yang paling sering terjadi berada pada tingkat yang rendah. Hal ini mengindikasikan adanya variasi data yang signifikan, di mana sebagian besar pelanggan diperoleh dengan biaya rendah, tetapi terdapat beberapa kasus akuisisi dengan biaya yang sangat tinggi.
 Gambar Histogram : 
-![Histogram Biaya Akuisisi Pelanggan](results/histogram_Biaya_Akuisisi_Pelanggan_Juta_IDR.png)
+![Histogram Biaya Akuisisi Pelanggan]
 interpretasi :
 Histogram distribusi Biaya Akuisisi Pelanggan menunjukkan pola yang sangat mirip dengan distribusi pendapatan tahunan, mengungkapkan karakteristik industri startup SaaS yang menarik. Sebagian besar startup (sekitar 40 observasi) berhasil mengakuisisi pelanggan dengan biaya yang relatif efisien, terkonsentrasi pada rentang 0-20 Juta IDR per pelanggan.
 Garis merah putus-putus yang menandai rata-rata biaya akuisisi sebesar 33,5 Juta IDR berada di area dengan frekuensi yang sudah cukup rendah. Posisi mean yang jauh dari puncak distribusi ini menunjukkan adanya beberapa startup dengan biaya akuisisi yang sangat tinggi (di atas 40-60 Juta IDR) yang menarik nilai rata-rata ke atas, membentuk ekor panjang di sisi kanan histogram.
@@ -99,7 +99,7 @@ Interpretasi:
 Distribusi nilai pelanggan mendekati simetris dengan mean (100,02 Juta IDR) dan median (98,71 Juta IDR) yang hampir sama. Namun, modus yang sangat rendah (10,11 Juta IDR) mengisyaratkan bahwa mayoritas pelanggan memiliki nilai ekonomi yang rendah. Perbedaan besar antara modus dengan mean dan median menunjukkan keberadaan segmen kecil pelanggan dengan nilai sangat tinggi yang secara signifikan meningkatkan nilai rata-rata keseluruhan.
 
 **Gambar histogram**
-![Histogram Biaya Akuisisi Pelanggan](results/histogram_Nilai_Pelanggan_Juta_IDR.png)
+![Histogram Biaya Akuisisi Pelanggan]
 intepretasi :
 Histogram distribusi Nilai Pelanggan menunjukkan pola yang cukup berbeda namun tetap konsisten dengan karakteristik industri startup SaaS yang telah terlihat sebelumnya. Sebagian besar pelanggan startup memiliki nilai ekonomi yang relatif rendah, terkonsentrasi pada rentang 0-50 Juta IDR dengan frekuensi tertinggi mencapai sekitar 40 observasi.
 Garis merah putus-putus yang menandai rata-rata nilai pelanggan sebesar 100,02 Juta IDR memberikan wawasan yang penting. Posisi mean yang tepat di 100,02 Juta IDR hanya 0,02 Juta IDR di atas angka bulat 100 terletak di area yang frekuensinya sudah mulai menurun, namun tidak sedrastis pada dua variabel sebelumnya. Ketepatan angka ini (bukan pembulatan kasar) menunjukkan perhitungan statistik yang presisi dalam analisis.
