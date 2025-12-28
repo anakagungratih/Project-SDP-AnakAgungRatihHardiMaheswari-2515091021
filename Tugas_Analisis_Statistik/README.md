@@ -291,8 +291,10 @@ Dari kotak tersebut, garis median (Q2) terlihat berada sangat dekat dengan dasar
 Boxplot menunjukkan distribusi biaya akuisisi pelanggan dengan median sekitar 33 Juta IDR. Box (IQR) yang simetris mengindikasikan distribusi yang relatif normal, dengan 50% data tengah terkonsentrasi antara 15-51 Juta IDR. Tidak terlihat outlier yang ekstrem, menandakan konsistensi dalam strategi akuisisi pelanggan. Rentang biaya yang cukup lebar (2.56-68.77 Juta IDR) mencerminkan variasi tingkat investasi akuisisi antar perusahaan, namun distribusi yang simetris menunjukkan pola pengeluaran yang terukur dan tidak ada anomali biaya.
 
 ![Boxplot nilai Pelanggan](results/boxplot_nilai_pelanggan.png)
+Distribusi nilai pelanggan menunjukkan variasi yang sangat besar (range 6.01-205.46 Juta IDR). Median 98 Juta IDR berada di posisi tengah box yang simetris, mengindikasikan distribusi normal. Box yang relatif tinggi menunjukkan dispersi nilai pelanggan yang signifikan antar perusahaan, dengan beberapa outlier potensial di nilai ekstrem tinggi. Hal ini mencerminkan segmentasi pelanggan yang sangat beragam dalam hal nilai kontribusi.
 
 ![Boxplot Tingkat churn](results/boxplot_tingkat_churn.png)
+Boxplot menunjukkan mayoritas perusahaan memiliki churn negatif (median -14.3%), mengindikasikan retensi pelanggan yang baik secara umum. Namun, garis putus-putus di 0% berada di atas box utama, menunjukkan bahwa 25% data atas (Q3-Max) memiliki churn positif (kehilangan pelanggan). Polarisasi performa terlihat jelas antara perusahaan dengan retensi sangat baik (churn negatif tinggi) dan yang bermasalah (churn positif).
 
 ### 5.2. Uji Normalitas
 - **Hasil Uji Shapiro-Wilk:**
