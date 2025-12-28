@@ -14,7 +14,7 @@
 # -----------------------------------------------------------------
 # install.packages("tidyverse") # jalankan sekali jika belum ada
 library(tidyverse)
-
+library(readr)
 # -----------------------------------------------------------------
 # Langkah 2: Memuat Dataset
 # -----------------------------------------------------------------
@@ -22,18 +22,22 @@ library(tidyverse)
 
 tryCatch({
   file_path <- "C:/Users/anaka/OneDrive/Desktop/Semester 1/Statistika dan Probabilitas/Tugas_Analisis_Statistik/data/data_startup_saas.csv"
-  
   data <- read_csv(file_path)
   
-  print(paste("Dataset berhasil dimuat dari:", file_path))
+  #variable Tingkat_Churn dibaca <chr> perlu diubah menjadi <dbl> dengan:
+  data <- data %>%
+    mutate(
+      Tingkat_Churn_Persen = as.numeric(Tingkat_Churn_Persen)
+    )
   
 }, error = function(e) {
-  print("Gagal memuat dataset. Pastikan:")
-  print("1. Nama file sudah benar")
-  print("2. File berada di folder 'data'")
-  print("3. Ekstensi file adalah .csv")
-  print(e)
+  print("Terjadi error saat memuat dataset:")
+  print(e$message)
 })
+
+
+#karena variable Tingkat_Churn dibaca <chr> perlu diubah menjadi <dbl> dengan:
+
 
 # -----------------------------------------------------------------
 # Langkah 3: Pemeriksaan Awal Data
