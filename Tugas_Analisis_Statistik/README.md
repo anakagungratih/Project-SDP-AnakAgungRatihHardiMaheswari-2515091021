@@ -67,7 +67,7 @@ Intepretasi :
    Berdasarkan hasil analisis statistik deskriptif, distribusi pendapatan tahunan startup SaaS menunjukkan karakteristik yang menarik.
 Rata-rata pendapatan tahunan sebesar 31,88 Miliar IDR menunjukkan nilai tengah aritmatika dari seluruh sampel. Namun, yang lebih menarik adalah perbandingan ketiga ukuran pemusatan ini.
 Median sebesar 31,30 Miliar IDR yang hampir sama dengan mean (hanya berbeda 0,58 Miliar IDR) mengindikasikan bahwa secara umum, distribusi data cukup seimbang di sekitar nilai tengah. Jarak yang kecil antara mean dan median menunjukkan tidak ada skewness (kemencengan) yang ekstrem.
-Namun, modus yang jauh lebih rendah yaitu 1,87 Miliar IDR mengungkapkan cerita yang berbeda. Nilai ini menunjukkan bahwa pendapatan tahunan yang paling sering muncul di antara startup-startup ini justru berada di level yang sangat rendah — hampir 30 Miliar IDR lebih rendah dari rata-ratanya.
+Namun, modus yang jauh lebih rendah yaitu 1,87 Miliar IDR mengungkapkan cerita yang berbeda. Nilai ini menunjukkan bahwa pendapatan tahunan yang paling sering muncul di antara startup-startup ini justru berada di level yang sangat rendah hampir 30 Miliar IDR lebih rendah dari rata-ratanya.
 
 Interpretasi histogram
 ![Histogram Pendapatan Tahunan](results/histogram_Pendapatan_Tahunan_Miliar_IDR.png)
