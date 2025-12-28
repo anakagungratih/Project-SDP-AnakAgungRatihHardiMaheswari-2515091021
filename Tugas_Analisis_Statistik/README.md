@@ -10,12 +10,42 @@
 ---
 
 ## 2. Deskripsi Proyek
+*Latar Belakang*
+Proyek ini bertujuan untuk menganalisis data pelanggan guna memahami pola pendapatan, biaya akuisisi, nilai pelanggan, dan tingkat churn. Analisis ini akan membantu dalam pengambilan keputusan strategis terkait manajemen hubungan pelanggan dan optimasi pendapatan.
 
-Dataset yang digunakan dalam analisis ini adalah data startup SaaS yang terdiri dari 650 observasi dengan 6 variabel, yang merepresentasikan karakteristik kinerja dan pelanggan dari berbagai startup. Dalam penelitian ini, variabel yang digunakan adalah Pendapatan_Tahunan_Miliar_IDR, Biaya_Akuisisi_Pelanggan_Juta_IDR, dan Nilai_Pelanggan_Juta_IDR.
+*Dataset*
+Dataset yang digunakan terdiri dari 4 variabel utama yang merepresentasikan aspek finansial dan retensi pelanggan:
 
-Pendapatan_Tahunan_Miliar_IDR menggambarkan total pendapatan startup dalam satu tahun, Biaya_Akuisisi_Pelanggan_Juta_IDR menunjukkan biaya yang dikeluarkan perusahaan untuk memperoleh satu pelanggan, sedangkan Nilai_Pelanggan_Juta_IDR merepresentasikan nilai ekonomi pelanggan bagi perusahaan.
+- Pendapatan_Tahunan_Miliar_IDR
+   Deskripsi: Total pendapatan tahunan dari pelanggan dalam satuan miliar Rupiah
+   Tipe Data: Numerik kontinu
+   Relevansi: Mengukur kontribusi pendapatan setiap pelanggan
 
-Tujuan dari analisis ini adalah untuk memahami karakteristik data melalui statistik deskriptif, serta menganalisis hubungan antara biaya akuisisi pelanggan dan nilai pelanggan terhadap pendapatan tahunan startup. Hasil analisis diharapkan dapat memberikan gambaran mengenai efisiensi strategi akuisisi pelanggan dan kontribusinya terhadap pendapatan perusahaan.
+- Biaya_Akuisisi_Pelanggan_Juta_IDR
+   Deskripsi: Biaya yang dikeluarkan untuk mengakuisisi setiap pelanggan dalam satuan juta Rupiah
+   Tipe Data: Numerik kontinu
+   Relevansi: Mengukur efisiensi strategi akuisisi pelanggan
+
+- Nilai_Pelanggan_Juta_IDR
+   Deskripsi: Nilai seumur hidup (lifetime value) pelanggan dalam satuan juta Rupiah
+   Tipe Data: Numerik kontinu
+   Relevansi: Mengestimasi profitabilitas jangka panjang pelanggan
+
+- Tingkat_Churn_Persen
+   Deskripsi: Persentase pelanggan yang berhenti menggunakan layanan dalam periode tertentu
+   Tipe Data: Numerik kontinu (dapat bernilai negatif untuk retensi)
+   Relevansi: Mengukur tingkat retensi dan loyalitas pelanggan
+
+- Alur Proyek Analisis Data
+Proyek ini dijalankan melalui lima tahap berurutan menggunakan script R terpisah. Tahap pertama dengan 01_data_preparation.R memuat dan membersihkan data mentah, termasuk penanganan missing values, outlier, validasi tipe data, dan transformasi data jika diperlukan, menghasilkan dataset siap analisis.
+
+Tahap kedua menggunakan 02_analisis_deskriptif.R untuk menganalisis karakteristik keempat variabel utama: Pendapatan_Tahunan_Miliar_IDR, Biaya_Akuisisi_Pelanggan_Juta_IDR, Nilai_Pelanggan_Juta_IDR, dan Tingkat_Churn_Persen. Script ini menghitung ukuran pemusatan (mean, median, modus) dan ukuran sebaran (standar deviasi, range, kuartil), serta menampilkannya dalam tabel dan visualisasi untuk memahami distribusi data.
+
+Tahap ketiga menjalankan 03_uji_asumsi.R untuk menguji asumsi statistik, terutama normalitas data menggunakan Shapiro-Wilk atau Kolmogorov-Smirnov, didukung pemeriksaan visual QQ-plot dan histogram. Hasil uji ini menentukan kelayakan metode parametrik pada analisis selanjutnya.
+
+Tahap keempat menggunakan 04_analisis_korelasi.R untuk mengeksplorasi hubungan antar variabel. Metode korelasi disesuaikan dengan hasil uji normalitas: Pearson untuk data normal dan Spearman untuk data tidak normal, guna mengidentifikasi kekuatan dan arah hubungan.
+
+Tahap terakhir dengan 05_analisis_regresi.R membangun model statistik untuk memprediksi atau menjelaskan pengaruh variabel, seperti memprediksi Tingkat_Churn_Persen berdasarkan variabel finansial lainnya. Script ini mencakup pembentukan model, evaluasi dengan R-squared dan p-value, serta interpretasi hasil untuk rekomendasi bisnis yang dapat ditindaklanjuti. Seluruh proses dijalankan secara sistematis untuk analisis yang komprehensif dan valid.
 
 ---
 
@@ -36,7 +66,12 @@ Untuk mereproduksi hasil analisis ini, ikuti langkah-langkah berikut:
 3. Instal paket yang diperlukan dengan menjalankan perintah berikut di konsol R:
    ```R
    # install.packages(c("tidyverse", "corrplot", "knitr"))
-   ```
+   dan packages tambahan sesuai beberapa detail yang penulis tambahkan dalan Readme penulis yaitu:
+    # install.packages(dplyr)
+   # install.packages(ggplot2)
+   # install.packages(kableExtra)
+   # install.packages(summarytools)
+   
 4. Jalankan skrip di dalam folder `/scripts` secara berurutan, mulai dari `01_data_preparation.R` hingga `05_analisis_regresi.R`.
 
 ---
@@ -46,14 +81,14 @@ Untuk mereproduksi hasil analisis ini, ikuti langkah-langkah berikut:
 Di bagian ini, mahasiswa diharapkan untuk menyajikan dan menginterpretasikan hasil dari setiap tahap analisis.
 
 ### 5.1. Statistik Deskriptif
-- **Tabel Ringkasan**
-  Tabel Ringkasan:
+- **Tabel Ringkasan Deskriptif (mean, median, modus**
+![Tabel Ringkasan Deskriptif](results/tabel_deskriptif_hasil.png)
 
 **Variabel**                        
-Pendapatan_Tahunan_Miliar_IDR  -> (variabel utama) untuk analisis deskriptif secara menyeluruh atau lengkapnya saya menggunakan variabel Pendapatan_Tahunan_Miliar_IDR, namun saya juga menggunakan 2 variabel tambahan untuk mencoba code shortcut dalam menghitung mean median, dan modus 3 variabel sekaligus.
-
-Biaya_Akuisisi_Pelanggan_Juta_IDR -> variabel tambahan (percobaan)   
-Nilai_Pelanggan_Juta_IDR -> variabel tambahan (percobaan)
+Pendapatan_Tahunan_Miliar_IDR  
+Biaya_Akuisisi_Pelanggan_Juta_IDR    
+Nilai_Pelanggan_Juta_IDR
+Tingkat_Churn_Persen
 
 **NOTE** ( pada analisis deskriptif ini saya menggunakan 2 metode untuk mencari nilai mean, median, dan modus, metode pertama dengan saya mencari secara manual yang menggunakan script yang menginput variabel satu per satu, lalu metode kedua saya menggunakan shorcut dengan 1 script bisa mendapat mean, median, dan modus dari 3 variabel sekaligus, dan hasilnya sama seperti cara manual )
 
