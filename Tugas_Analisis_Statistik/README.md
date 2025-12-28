@@ -85,12 +85,12 @@ Di bagian ini, mahasiswa diharapkan untuk menyajikan dan menginterpretasikan has
 ![Tabel Ringkasan Deskriptif](results/tabel_deskriptif_hasil.png)
 
 **Variabel**                        
-Pendapatan_Tahunan_Miliar_IDR  
-Biaya_Akuisisi_Pelanggan_Juta_IDR    
-Nilai_Pelanggan_Juta_IDR
-Tingkat_Churn_Persen
+   Pendapatan_Tahunan_Miliar_IDR  
+   Biaya_Akuisisi_Pelanggan_Juta_IDR    
+   Nilai_Pelanggan_Juta_IDR
+   Tingkat_Churn_Persen
 
-**NOTE** ( pada analisis deskriptif ini saya menggunakan 2 metode untuk mencari nilai mean, median, dan modus, metode pertama dengan saya mencari secara manual yang menggunakan script yang menginput variabel satu per satu, lalu metode kedua saya menggunakan shorcut dengan 1 script bisa mendapat mean, median, dan modus dari 3 variabel sekaligus, dan hasilnya sama seperti cara manual )
+**NOTE** ( pada analisis deskriptif ini saya menggunakan 2 metode untuk mencari nilai mean, median, dan modus, metode pertama dengan saya mencari secara manual yang menggunakan script yang menginput variabel satu per satu, lalu metode kedua saya menggunakan shorcut dengan 1 script bisa mendapat mean, median, dan modus dari 3 variabel sekaligus, dan hasilnya sama seperti cara manual namun lebih efektif dan efisien)
 
 **INTERPRETASI**
 1. Pendapatan Tahunan (Miliar IDR)
@@ -143,6 +143,18 @@ Yang menarik adalah bagaimana mean sebesar 100,02 Juta IDR ini jauh lebih tinggi
 Histogram ini secara visual menjelaskan mengapa dalam analisis regresi sebelumnya nilai pelanggan memiliki koefisien positif sebesar 1,1686—karena variasi nilai pelanggan antar startup sangat luas, dari yang bernilai rendah hingga sangat tinggi. Perbedaan dalam komposisi portofolio pelanggan inilah yang menjadi pembeda utama kinerja perusahaan, di mana startup dengan basis pelanggan bernilai tinggi secara konsisten menunjukkan performa finansial yang lebih baik.
 Presisi angka 100,02 (bukan 100 atau 100,0) juga mengindikasikan bahwa perhitungan statistik dalam analisis ini dilakukan dengan ketelitian yang tinggi, memberikan keyakinan lebih pada validitas temuan-temuan yang dihasilkan.
 
+4. Tingkat_Churn_Persen
+   - Rata-rata (Mean): -14,79%
+   - Nilai Tengah (Median): -14,39%
+   - Nilai Paling Sering Muncul (Modus): 13,55%
+
+Intepretasi :
+Tingkat churn menunjukkan rata-rata sebesar -14,79% dengan median -14,39%, mengindikasikan performa retensi pelanggan yang baik secara keseluruhan karena nilai negatif merepresentasikan retensi netto positif. Namun, modus sebesar 13,55% yang bernilai positif mengungkapkan adanya ketidaksesuaian distribusi data, di mana terdapat segmen pelanggan tertentu yang justru sering mengalami churn tinggi meskipun secara agregat perusahaan berhasil mempertahankan pelanggan.
+
+Implikasi Bisnis: Perusahaan perlu melakukan segmentasi lebih mendalam untuk mengidentifikasi kelompok pelanggan dengan churn positif (13,55%) yang menjadi modus, sambil mempertahankan strategi retensi yang telah berhasil menciptakan rata-rata churn negatif. Disparitas antara modus positif dengan mean/median negatif menandakan keberhasilan retensi pada mayoritas pelanggan tetapi kegagalan pada segmen tertentu, sehingga diperlukan pendekatan yang lebih tersegmentasi dalam manajemen retensi pelanggan.
+
+Gambar Histogram
+![Histogram Tingkat Churn Persen](results/histogram
 
 **Interpretasi Ukuran Sebaran Data ((menggunakan variabel Pendapatan_Tahunan_Miliar_IDR))**
 - Pendapatan Tahunan (Miliar IDR)
