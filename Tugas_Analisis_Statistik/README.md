@@ -67,7 +67,7 @@ Untuk mereproduksi hasil analisis ini, ikuti langkah-langkah berikut:
    ```R
    # install.packages(c("tidyverse", "corrplot", "knitr"))
    dan packages tambahan sesuai beberapa detail yang penulis tambahkan dalan Readme penulis yaitu:
-    # install.packages(dplyr)
+   # install.packages(dplyr)
    # install.packages(ggplot2)
    # install.packages(kableExtra)
    # install.packages(summarytools)
@@ -154,9 +154,14 @@ Tingkat churn menunjukkan rata-rata sebesar -14,79% dengan median -14,39%, mengi
 Implikasi Bisnis: Perusahaan perlu melakukan segmentasi lebih mendalam untuk mengidentifikasi kelompok pelanggan dengan churn positif (13,55%) yang menjadi modus, sambil mempertahankan strategi retensi yang telah berhasil menciptakan rata-rata churn negatif. Disparitas antara modus positif dengan mean/median negatif menandakan keberhasilan retensi pada mayoritas pelanggan tetapi kegagalan pada segmen tertentu, sehingga diperlukan pendekatan yang lebih tersegmentasi dalam manajemen retensi pelanggan.
 
 Gambar Histogram
-![Histogram Tingkat Churn Persen](results/histogram
+![Histogram Tingkat Churn Persen](results/histogram distribusi tingkat churn.png)
+Histogram menunjukkan distribusi tingkat churn yang berkisar dari -51% hingga +9%, dengan frekuensi tertinggi terkonsentrasi pada rentang -40% hingga -20%. Rata-rata churn sebesar -14,79% dan nilai tengah -14,39% yang saling berdekatan mengindikasikan distribusi yang relatif simetris di sekitar nilai negatif tersebut. Puncak distribusi berada di sekitar -35% hingga -25%, menandakan bahwa sebagian besar pelanggan memiliki tingkat retensi yang sangat baik dengan churn negatif yang signifikan.
 
-**Interpretasi Ukuran Sebaran Data ((menggunakan variabel Pendapatan_Tahunan_Miliar_IDR))**
+Implikasi Bisnis: Performa retensi pelanggan secara keseluruhan sangat positif dengan mayoritas churn bernilai negatif, menunjukkan efektivitas strategi retensi yang diterapkan. Namun, keberadaan beberapa pelanggan dengan churn positif (hingga +9%) mengisyaratkan perlunya identifikasi segmentasi pelanggan yang masih rentan terhadap attrition. Disparitas antara modus di rentang -35% hingga -25% dengan mean di -14,79% mengungkapkan adanya variasi dalam pengalaman pelanggan yang memerlukan pendekatan retensi yang lebih tersegmentasi dan personalisasi strategi untuk mengatasi kelompok pelanggan dengan churn positif.
+
+**TABEL UKURAN SEBARAN**
+![TABEL UKURAN SEBARAN 4 VARIABEL](results/TABEL SEBARAN DATA 4 VARIABEL.png)
+
 - Pendapatan Tahunan (Miliar IDR)
 - Ringkasan Ukuran Sebaran:
 - Range (Rentang): 1.00 - 66.89 Miliar IDR
@@ -187,18 +192,105 @@ Interpretasi:
 - Segmentasi jelas: Terdapat perbedaan mencolok antara perusahaan dengan pendapatan rendah (di bawah 14.31 Miliar IDR) dan perusahaan dengan pendapatan tinggi (di atas 49.04 Miliar IDR).
 - Risiko dalam estimasi: Standar deviasi yang besar menunjukkan bahwa menggunakan rata-rata sebagai estimasi untuk perusahaan individual bisa sangat tidak akurat.
 
-**Kesimpulan**: Data pendapatan tahunan menunjukkan variasi yang sangat tinggi dengan distribusi yang cenderung miring ke kanan. Sebagian besar perusahaan memiliki pendapatan relatif rendah, namun terdapat beberapa perusahaan dengan pendapatan sangat tinggi yang menarik rata-rata keseluruhan ke atas.
+2. BIAYA AKUISISI PELANGGAN (JUTA IDR)
+Ringkasan Ukuran Sebaran:
+- Range (Rentang): 2.56 - 68.77 Juta IDR
+- Standar Deviasi: 20.03 Juta IDR
+   Ringkasan 5 Angka:
+      - Minimum: 2.56 Juta IDR
+      - Kuartil 1 (Q1): 15.23 Juta IDR
+      - Median (Q2): 33.08 Juta IDR
+      - Kuartil 3 (Q3): 50.92 Juta IDR
+      - Maksimum: 68.77 Juta IDR
+      - Rata-rata (Mean): 33.50 Juta IDR
 
-- **Visualisasi (Histogram/Boxplot): disini saya menggunakan variabel pendapatan tahunan saja**
-Interpretasi **Histogram** Pendapatan Tahunan
-Histogram distribusi Pendapatan Tahunan menunjukkan pola yang tidak simetris dan jelas miring ke kanan (right-skewed). Sebagian besar data, dengan frekuensi tertinggi mencapai sekitar 40 observasi, terkonsentrasi kuat pada rentang pendapatan rendah, yaitu antara 0 hingga 20 Miliar IDR. Setelah melewati titik tersebut, frekuensi observasi mulai menurun drastis.
-Rata-rata (mean) pendapatan, yang ditunjukkan oleh garis merah putus-putus pada nilai 31.88 Miliar IDR, terletak jauh di sebelah kanan puncak distribusi. Posisi mean ini berada di area yang frekuensinya sudah jauh lebih rendah, yang secara visual mengkonfirmasi bahwa nilai rata-rata keseluruhan ditarik ke atas oleh keberadaan sejumlah kecil perusahaan dengan pendapatan yang sangat tinggi. Hanya sangat sedikit perusahaan yang tercatat memiliki pendapatan di atas 40 Miliar IDR, dan ekor histogram yang memanjang hingga mendekati 60 Miliar IDR mewakili outlier atau perusahaan-perusahaan berkinerja ekstrem.
-Secara keseluruhan, histogram ini menggambarkan karakteristik industri yang didominasi oleh banyak perusahaan dengan skala pendapatan kecil hingga menengah, sementara hanya segelintir perusahaan besar yang menghasilkan pendapatan luar biasa tinggi, sehingga menciptakan kesenjangan yang signifikan dan membentuk distribusi yang tidak merata.
+Interpretasi:
+Rentang Data (Range):
+Biaya akuisisi pelanggan memiliki rentang yang lebar, mulai dari 2.56 Juta IDR hingga 68.77 Juta IDR dengan rentang total 66.21 Juta IDR. Hal ini menunjukkan variasi yang signifikan dalam biaya yang dikeluarkan perusahaan untuk mendapatkan pelanggan baru.
 
-**Interpretasi Box Plot**
+Standar Deviasi:
+Standar deviasi sebesar 20.03 Juta IDR yang relatif tinggi mengindikasikan tingkat variabilitas biaya akuisisi yang besar antar perusahaan. Nilai ini mendekati rata-rata, menunjukkan penyebaran data yang luas.
+
+Analisis Berdasarkan Kuartil:
+50% data tengah: Biaya akuisisi 50% perusahaan berada dalam rentang 15.23-50.92 Juta IDR dengan IQR sebesar 35.69 Juta IDR
+Distribusi relatif simetris: Jarak Q1-Median (17.85) hampir sama dengan Median-Q3 (17.84), menunjukkan distribusi yang mendekati simetris
+
+Segmentasi biaya: Terdapat perbedaan jelas antara perusahaan dengan biaya akuisisi rendah (25% di bawah 15.23 Juta IDR) dan tinggi (25% di atas 50.92 Juta IDR)
+
+Implikasi Bisnis:
+Efisiensi variatif: Perbedaan biaya akuisisi yang besar menunjukkan beragam tingkat efisiensi dalam strategi pemasaran dan akuisisi pelanggan
+Benchmarking: Median 33.08 Juta IDR dapat menjadi benchmark untuk menilai efisiensi biaya akuisisi
+Strategi diferensiasi: Perusahaan perlu menyesuaikan strategi akuisisi berdasarkan segmentasi biaya yang ada
+
+3. NILAI PELANGGAN (JUTA IDR)
+Ringkasan Ukuran Sebaran:
+Range (Rentang): 6.01 - 205.46 Juta IDR
+Standar Deviasi: 59.86 Juta IDR
+   Ringkasan 5 Angka:
+   - Minimum: 6.01 Juta IDR
+   - Kuartil 1 (Q1): 45.66 Juta IDR
+   - Median (Q2): 98.71 Juta IDR
+   - Kuartil 3 (Q3): 152.08 Juta IDR
+   - Maksimum: 205.46 Juta IDR
+   - Rata-rata (Mean): 100.02 Juta IDR
+
+Interpretasi:
+Rentang Data (Range):
+Nilai pelanggan menunjukkan rentang yang sangat ekstrem, dari 6.01 Juta IDR hingga 205.46 Juta IDR dengan rentang total 199.45 Juta IDR. Ini mengindikasikan disparitas nilai pelanggan yang sangat besar antar perusahaan.
+
+Standar Deviasi:
+Standar deviasi yang sangat tinggi (59.86 Juta IDR) menunjukkan tingkat variabilitas yang ekstrem. Nilai ini mencerminkan perbedaan yang sangat signifikan dalam nilai yang dihasilkan oleh pelanggan di berbagai perusahaan.
+
+Analisis Berdasarkan Kuartil:
+50% data tengah sangat lebar: IQR sebesar 106.42 Juta IDR menunjukkan keragaman nilai pelanggan yang tinggi di kelompok tengah
+Distribusi mendekati simetris: Jarak Q1-Median (53.05) dan Median-Q3 (53.37) hampir sama
+Segmentasi nilai ekstrem: Terdapat perbedaan mencolok antara perusahaan dengan nilai pelanggan rendah (25% di bawah 45.66 Juta IDR) dan sangat tinggi (25% di atas 152.08 Juta IDR)
+
+Implikasi Bisnis:
+Segmentasi pelanggan kritis: Variasi nilai yang ekstrem menekankan pentingnya segmentasi pelanggan berdasarkan nilai
+Fokus pada high-value customers: 25% pelanggan bernilai tinggi (di atas 152.08 Juta IDR) memberikan kontribusi yang sangat signifikan
+Strategi retensi berbeda: Perlu pendekatan berbeda untuk mempertahankan pelanggan bernilai rendah vs tinggi
+
+4. TINGKAT CHURN (%)
+Ringkasan Ukuran Sebaran:
+Range (Rentang): -50.03% - 15.78%
+Standar Deviasi: 20.02%
+   Ringkasan 5 Angka:
+   Minimum: -50.03%
+   Kuartil 1 (Q1): -32.21%
+   Median (Q2): -14.39%
+   Kuartil 3 (Q3): 3.43%
+   Maksimum: 15.78%
+   Rata-rata (Mean): -14.79%
+
+Interpretasi:
+Rentang Data (Range):
+Tingkat churn memiliki rentang yang unik dari -50.03% hingga 15.78% dengan rentang total 65.81%. Nilai negatif menunjukkan retensi netto positif, sementara positif menunjukkan kehilangan pelanggan.
+
+Standar Deviasi:
+Standar deviasi sebesar 20.02% yang tinggi menunjukkan variasi performa retensi yang signifikan antar perusahaan. Nilai ini mencerminkan keberagaman efektivitas strategi retensi pelanggan.
+
+Analisis Berdasarkan Kuartil:
+Distribusi tidak simetris: Jarak Q1-Median (17.82%) berbeda dengan Median-Q3 (17.82% vs 17.82% sebenarnya sama, tapi posisi negatif-positif menunjukkan distribusi yang unik)
+Mayoritas retensi baik: 75% perusahaan memiliki churn di bawah 3.43%, dengan 50% bahkan memiliki churn negatif
+Outlier positif: 25% perusahaan memiliki churn positif, menunjukkan masalah retensi pada segmen tertentu
+Polarisasi performa: Terdapat polarisasi antara perusahaan dengan retensi sangat baik (churn negatif tinggi) dan yang bermasalah (churn positif)
+
+Implikasi Bisnis:
+Perform retensi bervariasi: Industri menunjukkan tingkat keberhasilan retensi yang sangat beragam
+Benchmark negatif sebagai target: Churn negatif pada 50% perusahaan menjadi target yang realistis
+Identifikasi best practices: Perusahaan dengan churn sangat negatif (-32.21% hingga -50.03%) perlu dipelajari untuk best practices
+Intervensi spesifik: Perusahaan dengan churn positif (di atas 3.43%) memerlukan intervensi retensi yang khusus
+
+- **Visualisasi (Boxplot) & Intepretasi**
 ![Boxplot Pendapatan Tahunan](results/boxplot_Pendapatan_Tahunan_Miliar_IDR.png)
    Boxplot menunjukkan distribusi data Pendapatan Tahunan yang sangat miring ke arah nilai tinggi (positively skewed). Kotak (box) utama, yang mewakili 50% data tengah (antara kuartil pertama Q1 dan kuartil ketiga Q3), terlihat sangat pendek dan terkompresi ke bagian bawah skala, tepat di sekitar atau sedikit di atas nilai nol. Hal ini mengindikasikan bahwa separuh dari perusahaan-perusahaan dalam data memiliki pendapatan yang terkonsentrasi pada rentang yang sangat rendah dan sempit.
 Dari kotak tersebut, garis median (Q2) terlihat berada sangat dekat dengan dasar kotak, menguatkan kesimpulan bahwa sebagian besar nilai data berada di angka-angka rendah. Kemudian, dari kuartil ketiga (Q3) ke atas, terdapat "whisker" atau garis yang memanjang sangat jauh ke arah nilai positif. Panjang whisker atas yang ekstrem ini mewakili sebaran 25% data dengan pendapatan tertinggi, yang nilainya sangat berjauhan dari kelompok mayoritas.
+
+![Boxplot Akuisisi Pelanggan](results/boxplot biaya akuisisi pelanggan.png)
+Boxplot menunjukkan distribusi biaya akuisisi pelanggan dengan median sekitar 33 Juta IDR. Box (IQR) yang simetris mengindikasikan distribusi yang relatif normal, dengan 50% data tengah terkonsentrasi antara 15-51 Juta IDR. Tidak terlihat outlier yang ekstrem, menandakan konsistensi dalam strategi akuisisi pelanggan. Rentang biaya yang cukup lebar (2.56-68.77 Juta IDR) mencerminkan variasi tingkat investasi akuisisi antar perusahaan, namun distribusi yang simetris menunjukkan pola pengeluaran yang terukur dan tidak ada anomali biaya.
+
+
 
 ### 5.2. Uji Normalitas
 - **Hasil Uji Shapiro-Wilk:**
