@@ -154,13 +154,13 @@ Tingkat churn menunjukkan rata-rata sebesar -14,79% dengan median -14,39%, mengi
 Implikasi Bisnis: Perusahaan perlu melakukan segmentasi lebih mendalam untuk mengidentifikasi kelompok pelanggan dengan churn positif (13,55%) yang menjadi modus, sambil mempertahankan strategi retensi yang telah berhasil menciptakan rata-rata churn negatif. Disparitas antara modus positif dengan mean/median negatif menandakan keberhasilan retensi pada mayoritas pelanggan tetapi kegagalan pada segmen tertentu, sehingga diperlukan pendekatan yang lebih tersegmentasi dalam manajemen retensi pelanggan.
 
 Gambar Histogram
-![Histogram Distribusi Tingkat Churn](histogram%20distirbusi%20tingkat%20churn%20persen.png)
+![Histogram Distribusi Tingkat Churn](histogram_distribusi_tingkat_churn_persen.png)
 Histogram menunjukkan distribusi tingkat churn yang berkisar dari -51% hingga +9%, dengan frekuensi tertinggi terkonsentrasi pada rentang -40% hingga -20%. Rata-rata churn sebesar -14,79% dan nilai tengah -14,39% yang saling berdekatan mengindikasikan distribusi yang relatif simetris di sekitar nilai negatif tersebut. Puncak distribusi berada di sekitar -35% hingga -25%, menandakan bahwa sebagian besar pelanggan memiliki tingkat retensi yang sangat baik dengan churn negatif yang signifikan.
 
 Implikasi Bisnis: Performa retensi pelanggan secara keseluruhan sangat positif dengan mayoritas churn bernilai negatif, menunjukkan efektivitas strategi retensi yang diterapkan. Namun, keberadaan beberapa pelanggan dengan churn positif (hingga +9%) mengisyaratkan perlunya identifikasi segmentasi pelanggan yang masih rentan terhadap attrition. Disparitas antara modus di rentang -35% hingga -25% dengan mean di -14,79% mengungkapkan adanya variasi dalam pengalaman pelanggan yang memerlukan pendekatan retensi yang lebih tersegmentasi dan personalisasi strategi untuk mengatasi kelompok pelanggan dengan churn positif.
 
 **TABEL UKURAN SEBARAN**
-![TABEL UKURAN SEBARAN 4 VARIABEL](results/TABEL SEBARAN DATA 4 VARIABEL.png)
+![TABEL UKURAN SEBARAN 4 VARIABEL](results/tabel_sebaran_data_4_variabel.png)
 
 - Pendapatan Tahunan (Miliar IDR)
 - Ringkasan Ukuran Sebaran:
@@ -287,10 +287,12 @@ Intervensi spesifik: Perusahaan dengan churn positif (di atas 3.43%) memerlukan 
    Boxplot menunjukkan distribusi data Pendapatan Tahunan yang sangat miring ke arah nilai tinggi (positively skewed). Kotak (box) utama, yang mewakili 50% data tengah (antara kuartil pertama Q1 dan kuartil ketiga Q3), terlihat sangat pendek dan terkompresi ke bagian bawah skala, tepat di sekitar atau sedikit di atas nilai nol. Hal ini mengindikasikan bahwa separuh dari perusahaan-perusahaan dalam data memiliki pendapatan yang terkonsentrasi pada rentang yang sangat rendah dan sempit.
 Dari kotak tersebut, garis median (Q2) terlihat berada sangat dekat dengan dasar kotak, menguatkan kesimpulan bahwa sebagian besar nilai data berada di angka-angka rendah. Kemudian, dari kuartil ketiga (Q3) ke atas, terdapat "whisker" atau garis yang memanjang sangat jauh ke arah nilai positif. Panjang whisker atas yang ekstrem ini mewakili sebaran 25% data dengan pendapatan tertinggi, yang nilainya sangat berjauhan dari kelompok mayoritas.
 
-![Boxplot Akuisisi Pelanggan](results/boxplot biaya akuisisi pelanggan.png)
+![Boxplot Akuisisi Pelanggan](results/boxplot_biaya_akuisisi_pelanggan.png)
 Boxplot menunjukkan distribusi biaya akuisisi pelanggan dengan median sekitar 33 Juta IDR. Box (IQR) yang simetris mengindikasikan distribusi yang relatif normal, dengan 50% data tengah terkonsentrasi antara 15-51 Juta IDR. Tidak terlihat outlier yang ekstrem, menandakan konsistensi dalam strategi akuisisi pelanggan. Rentang biaya yang cukup lebar (2.56-68.77 Juta IDR) mencerminkan variasi tingkat investasi akuisisi antar perusahaan, namun distribusi yang simetris menunjukkan pola pengeluaran yang terukur dan tidak ada anomali biaya.
 
+![Boxplot nilai Pelanggan](results/boxplot_nilai_pelanggan.png)
 
+![Boxplot Tingkat churn](results/boxplot_tingkat_churn.png)
 
 ### 5.2. Uji Normalitas
 - **Hasil Uji Shapiro-Wilk:**
