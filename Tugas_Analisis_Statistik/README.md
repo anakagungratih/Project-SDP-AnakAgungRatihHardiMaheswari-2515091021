@@ -154,8 +154,7 @@ Tingkat churn menunjukkan rata-rata sebesar -14,79% dengan median -14,39%, mengi
 Implikasi Bisnis: Perusahaan perlu melakukan segmentasi lebih mendalam untuk mengidentifikasi kelompok pelanggan dengan churn positif (13,55%) yang menjadi modus, sambil mempertahankan strategi retensi yang telah berhasil menciptakan rata-rata churn negatif. Disparitas antara modus positif dengan mean/median negatif menandakan keberhasilan retensi pada mayoritas pelanggan tetapi kegagalan pada segmen tertentu, sehingga diperlukan pendekatan yang lebih tersegmentasi dalam manajemen retensi pelanggan.
 
 Gambar Histogram
-![Histogram Tingkat Churn Persen](results/histogram_distribusi_tingkat_churn.png)
-
+![Histogram Distribusi Tingkat Churn](histogram%20distirbusi%20tingkat%20churn%20persen.png)
 Histogram menunjukkan distribusi tingkat churn yang berkisar dari -51% hingga +9%, dengan frekuensi tertinggi terkonsentrasi pada rentang -40% hingga -20%. Rata-rata churn sebesar -14,79% dan nilai tengah -14,39% yang saling berdekatan mengindikasikan distribusi yang relatif simetris di sekitar nilai negatif tersebut. Puncak distribusi berada di sekitar -35% hingga -25%, menandakan bahwa sebagian besar pelanggan memiliki tingkat retensi yang sangat baik dengan churn negatif yang signifikan.
 
 Implikasi Bisnis: Performa retensi pelanggan secara keseluruhan sangat positif dengan mayoritas churn bernilai negatif, menunjukkan efektivitas strategi retensi yang diterapkan. Namun, keberadaan beberapa pelanggan dengan churn positif (hingga +9%) mengisyaratkan perlunya identifikasi segmentasi pelanggan yang masih rentan terhadap attrition. Disparitas antara modus di rentang -35% hingga -25% dengan mean di -14,79% mengungkapkan adanya variasi dalam pengalaman pelanggan yang memerlukan pendekatan retensi yang lebih tersegmentasi dan personalisasi strategi untuk mengatasi kelompok pelanggan dengan churn positif.
