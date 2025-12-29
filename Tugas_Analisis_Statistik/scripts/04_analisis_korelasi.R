@@ -13,6 +13,7 @@ if (!exists("data_bersih")) {
   print("Menjalankan skrip 01_data_preparation.R...")
 }
 
+
 var_x <- "Pendapatan_Tahunan_Miliar_IDR" 
 var_y <- "Nilai_Pelanggan_Juta_IDR"
 
@@ -105,3 +106,98 @@ if (p_value <= 0.05) {
   print(paste("p-value =", round(p_value, 5), "tidak signifikan secara statistik (> 0.05), 
               sehingga korelasi yang teramati bisa jadi hanya kebetulan."))
 }
+
+
+
+
+#==================================================================
+#analisis korelasi biaya akuisisi dengan tingkat churn persen
+#==================================================================
+scatter_plot <- ggplot(data_bersih, 
+                       aes_string(x = "Biaya_Akuisisi_Pelanggan_Juta_IDR", 
+                                  y = "Tingkat_Churn_Persen")) +
+  geom_point(alpha = 0.6, color = "salmon") +
+  geom_smooth(method = "lm", se = FALSE, color = "lightblue") +
+  labs(
+    title = "Scatter Plot antara Biaya Akuisisi Pelanggan dan Tingkat Churn",
+    subtitle = "Garis biru menunjukkan tren linear",
+    x = "Biaya Akuisisi Pelanggan (Juta IDR)",
+    y = "Tingkat Churn (%)"
+  ) +
+  theme_minimal()
+
+print(scatter_plot)
+
+# Menyimpan scatter plot ke folder 'results'
+ggsave(
+  filename = paste0("C:/Users/anaka/OneDrive/Desktop/Semester 1/Statistika dan Probabilitas/Tugas_Analisis_Statistik/results/scatterplot_", "Biaya_Akuisisi_Pelanggan_Juta_IDR", "_vs_", "Tingkat_Churn_Persen", ".png"),
+  plot = scatter_plot,
+  width = 8,
+  height = 6
+)
+print(paste("Scatter plot disimpan di folder 'results'."))
+
+# -----------------------------------------------------------------
+# Langkah 2: Menghitung Koefisien Korelasi
+# -----------------------------------------------------------------
+# Uji korelasi metode: Spearman
+correlation_test <- cor.test(
+  data_bersih[["Biaya_Akuisisi_Pelanggan_Juta_IDR"]],
+  data_bersih[["Tingkat_Churn_Persen"]],
+  method = "spearman"
+)
+
+print(paste("--- Hasil Uji Korelasi antara", "Biaya_Akuisisi_Pelanggan_Juta_IDR", "dan", "Tingkat_Churn_Persen", "---"))
+print(correlation_test)
+
+# Interpretasi otomatis
+cor_value <- as.numeric(correlation_test$estimate)
+p_value <- correlation_test$p.value
+
+print("--- Interpretasi Sederhana ---")
+print(paste("Koefisien Korelasi Spearman (ρ) =", round(cor_value, 3)))
+
+# Interpretasi kekuatan hubungan
+if (abs(cor_value) >= 0.7) {
+  strength <- "kuat"
+} else if (abs(cor_value) >= 0.4) {
+  strength <- "sedang"
+} else if (abs(cor_value) >= 0.1) {
+  strength <- "lemah"
+} else {
+  strength <- "sangat lemah atau tidak ada"
+}
+print(strength)
+
+# Interpretasi arah hubungan
+if (cor_value > 0) {
+  direction <- "positif"
+} else if (cor_value < 0) {
+  direction <- "negatif"
+} else {
+  direction <- "tidak ada arah"
+}
+
+print(paste(
+  "Ini menunjukkan adanya korelasi",
+  direction,
+  strength,
+  "antara",
+  var_x,
+  "dan",
+  var_y,
+  "."
+))
+
+# Interpretasi signifikansi
+if (p_value <= 0.05) {
+  print(paste("p-value =", round(p_value, 5), "adalah signifikan secara statistik (<= 0.05), 
+              sehingga kita yakin ada korelasi nyata di populasi."))
+} else {
+  print(paste("p-value =", round(p_value, 5), "tidak signifikan secara statistik (> 0.05), 
+              sehingga korelasi yang teramati bisa jadi hanya kebetulan."))
+}
+
+#============================================================
+#ANALISIS SELESAI
+#============================================================
