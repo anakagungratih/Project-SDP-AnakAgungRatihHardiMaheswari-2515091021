@@ -10,6 +10,11 @@
 # 1. Visual: Q-Q Plot (Quantile-Quantile Plot).
 # 2. Statistik: Uji Shapiro-Wilk.
 #
+#LIBRARY
+library(ggplot2)
+library(dplyr)
+library(gridExtra)
+
 # INSTRUKSI:
 # 1. Pastikan Anda sudah menjalankan skrip '01_data_preparation.R'.
 # 2. Ganti 'nama_kolom_numerik' dengan nama kolom yang sama dengan yang Anda analisis di skrip 02.
@@ -95,6 +100,88 @@ if(nrow(data_bersih) < 5000) {
 } else {
   print("Jumlah data lebih dari 5000, uji Shapiro-Wilk mungkin tidak akurat. Pertimbangkan uji lain seperti Kolmogorov-Smirnov atau andalkan inspeksi visual (Q-Q Plot).")
 }
+#================================================================
+#SHORTCUT UNTUK 4 VARIABEL SEKALIGUS
+#=================================================================
+
+
+# -----------------------------------------------------------------
+# Daftar variabel yang diuji (LANGSUNG NAMA VARIABEL)
+# -----------------------------------------------------------------
+variabel_uji <- c(
+  "Pendapatan_Tahunan_Miliar_IDR",
+  "Biaya_Akuisisi_Pelanggan_Juta_IDR",
+  "Nilai_Pelanggan_Juta_IDR",
+  "Tingkat_Churn_Persen"
+)
+
+# -----------------------------------------------------------------
+# Path folder results
+# -----------------------------------------------------------------
+path_results <- "C:/Users/anaka/OneDrive/Desktop/Semester 1/Statistika dan Probabilitas/Tugas_Analisis_Statistik/results/"
+
+# -----------------------------------------------------------------
+# Loop untuk setiap variabel
+# -----------------------------------------------------------------
+for (kolom in variabel_uji) {
+  
+  cat("\n====================================================\n")
+  cat("UJI NORMALITAS UNTUK VARIABEL:", kolom, "\n")
+  cat("====================================================\n")
+  
+  # Cek apakah kolom ada
+  if (!kolom %in% names(data_bersih)) {
+    warning(paste("Kolom", kolom, "tidak ditemukan. Dilewati."))
+    next
+  }
+  
+  # -------------------------------------------------
+  # Q-Q Plot
+  # -------------------------------------------------
+  qq_plot <- ggplot(data_bersih, aes_string(sample = kolom)) +
+    stat_qq() +
+    stat_qq_line(color = "red", linetype = "dashed") +
+    labs(
+      title = "Q-Q Plot Uji Normalitas",
+      subtitle = paste("Variabel:", kolom),
+      x = "Kuantil Teoritis (Normal)",
+      y = "Kuantil Sampel"
+    ) +
+    theme_minimal()
+  
+  print(qq_plot)
+  
+  # Simpan Q-Q Plot
+  ggsave(
+    filename = paste0(path_results, "qqplot_", kolom, ".png"),
+    plot = qq_plot,
+    width = 8,
+    height = 6
+  )
+  
+  cat("Q-Q Plot disimpan sebagai: qqplot_", kolom, ".png\n")
+  
+  # -------------------------------------------------
+  # Uji Shapiro-Wilk
+  # -------------------------------------------------
+  if (nrow(data_bersih) < 5000) {
+    
+    shapiro_result <- shapiro.test(data_bersih[[kolom]])
+    print(shapiro_result)
+    
+    if (shapiro_result$p.value > 0.05) {
+      cat("Interpretasi: p-value =", round(shapiro_result$p.value, 4),
+          " > 0.05 → Data cenderung NORMAL\n")
+    } else {
+      cat("Interpretasi: p-value =", round(shapiro_result$p.value, 4),
+          " ≤ 0.05 → Data TIDAK normal\n")
+    }
+    
+  } else {
+    cat("Jumlah data > 5000, Shapiro-Wilk tidak direkomendasikan.\n")
+  }
+}
+
 
 # Pesan akhir
 print("Uji normalitas selesai. Gunakan hasil ini untuk menentukan apakah analisis parametrik (seperti korelasi Pearson) sesuai untuk data Anda.")
