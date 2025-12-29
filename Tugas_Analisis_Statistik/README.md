@@ -85,10 +85,10 @@ Di bagian ini, mahasiswa diharapkan untuk menyajikan dan menginterpretasikan has
 ![Tabel Ringkasan Deskriptif](results/tabel_deskriptif_hasil.png)
 
 **Variabel**                        
-   Pendapatan_Tahunan_Miliar_IDR  
-   Biaya_Akuisisi_Pelanggan_Juta_IDR    
-   Nilai_Pelanggan_Juta_IDR
-   Tingkat_Churn_Persen
+   - Pendapatan_Tahunan_Miliar_IDR  
+   - Biaya_Akuisisi_Pelanggan_Juta_IDR    
+   - Nilai_Pelanggan_Juta_IDR
+   - Tingkat_Churn_Persen
 
 **NOTE** ( pada analisis deskriptif ini saya menggunakan 2 metode untuk mencari nilai mean, median, dan modus, metode pertama dengan saya mencari secara manual yang menggunakan script yang menginput variabel satu per satu, lalu metode kedua saya menggunakan shorcut dengan 1 script bisa mendapat mean, median, dan modus dari 3 variabel sekaligus, dan hasilnya sama seperti cara manual namun lebih efektif dan efisien)
 
@@ -297,15 +297,47 @@ Distribusi nilai pelanggan menunjukkan variasi yang sangat besar (range 6.01-205
 Boxplot menunjukkan mayoritas perusahaan memiliki churn negatif (median -14.3%), mengindikasikan retensi pelanggan yang baik secara umum. Namun, garis putus-putus di 0% berada di atas box utama, menunjukkan bahwa 25% data atas (Q3-Max) memiliki churn positif (kehilangan pelanggan). Polarisasi performa terlihat jelas antara perusahaan dengan retensi sangat baik (churn negatif tinggi) dan yang bermasalah (churn positif).
 
 ### 5.2. Uji Normalitas
-- **Hasil Uji Shapiro-Wilk:**
+1. Pendapatan Tahunan Miliar IDR
+- Hasil Uji Shapiro-Wilk:
    Nilai p-value: 1.497 × 10⁻¹⁴ (p-value ≈ 0.00000000000001497)
 dengan variabel Pendapatan Tahunan Miliar IDR
 Interpretasi:
 Nilai p-value yang sangat kecil (jauh di bawah 0.05) memberikan bukti statistik yang kuat untuk menolak hipotesis nol yang menyatakan bahwa data terdistribusi normal. Dengan kata lain, data Pendapatan_Tahunan_Miliar_IDR secara signifikan TIDAK terdistribusi normal. Implikasinya adalah metode statistik parametrik yang mengasumsikan distribusi normal (seperti uji-t, ANOVA, atau model regresi linear klasik) mungkin tidak sesuai untuk analisis data ini tanpa transformasi terlebih dahulu. Sebagai gantinya, dapat dipertimbangkan penggunaan metode non-parametrik atau melakukan transformasi data untuk mendekati distribusi normal.
-- **Plot Q-Q:**
+- Plot Q-Q:
 ![QQ Plot Uji Normalitas](results/qqplot_Pendapatan_Tahunan_Miliar_IDR.png)
 *Interpretasi:*
     Berdasarkan plot Q-Q yang ditampilkan, titik-titik data tidak mengikuti garis lurus diagonal dengan baik. Polanya menunjukkan penyimpangan yang sistematis dari garis normal teoritis. Titik-titik data di ekor kanan (nilai tinggi) dan kiri (nilai rendah) menyimpang jauh dari garis, membentuk pola kurva yang jelas. Hal ini mengindikasikan bahwa distribusi data memiliki ekor yang lebih panjang daripada distribusi normal, atau disebut right-skewed (miring ke kanan). Artinya, terdapat beberapa nilai ekstrem tinggi yang menarik mean ke kanan, sementara mayoritas data terkonsentrasi pada nilai-nilai yang lebih rendah. Pola ini konsisten dengan hasil uji Shapiro-Wilk yang menolak kenormalan data.
+
+2. Biaya_Akuisisi_Pelanggan_Juta_IDR
+   Hasil Uji Shapiro-Wilk:
+Nilai p-value: 4.138 × 10⁻¹⁵ (p-value ≈ 0.000000000000004138)
+
+Interpretasi:
+Nilai p-value yang sangat kecil (practically 0) jauh lebih rendah dari α = 0.05, sehingga H0 ditolak. Data Biaya_Akuisisi_Pelanggan_Juta_IDR terbukti TIDAK berdistribusi normal secara statistik. Hal ini mengindikasikan bahwa terdapat ketidaksesuaian yang signifikan antara distribusi data aktual dengan distribusi normal teoritis. Untuk analisis lebih lanjut, pendekatan non-parametrik seperti uji Mann-Whitney, Kruskal-Wallis, atau korelasi Spearman lebih direkomendasikan dibandingkan metode parametrik.
+
+Plot Q-Q:
+
+Deskripsi Plot:
+
+3. Nilai_Pelanggan_Juta_IDR
+Hasil Uji Shapiro-Wilk:
+Nilai p-value: 6.679 × 10⁻¹⁵ (p-value ≈ 0.000000000000006679)
+
+Interpretasi:
+Dengan p-value yang mendekati nol (6.679e-15), terdapat bukti statistik yang sangat kuat untuk menolak hipotesis normalitas. Data Nilai_Pelanggan_Juta_IDR secara jelas TIDAK mengikuti distribusi normal. Nilai W sebesar 0.94414 (mendekati 1, tapi masih di bawah batas kritis) menunjukkan bahwa meskipun penyimpangan tidak ekstrem, namun cukup signifikan secara statistik untuk sampel yang dimiliki. Transformasi data seperti log-transform atau Box-Cox transformation dapat dipertimbangkan sebelum melakukan analisis parametrik.
+
+Plot Q-Q:
+
+
+4. Tingkat_Churn_Persen
+Hasil Uji Shapiro-Wilk:
+Nilai p-value: 3.942 × 10⁻¹⁵ (p-value ≈ 0.000000000000003942)
+
+Interpretasi:
+Nilai p-value terkecil di antara keempat variabel (3.942e-15) memberikan bukti paling kuat untuk menolak normalitas. Data Tingkat_Churn_Persen merupakan variabel dengan penyimpangan paling signifikan dari distribusi normal. Hal ini dapat dimengerti mengingat variabel persentase churn seringkali memiliki distribusi yang terbatas (0-100%) dan mungkin terkumpul di sekitar nilai-nilai tertentu. Analisis terhadap variabel ini sebaiknya menggunakan metode yang tidak mengasumsikan normalitas, seperti analisis regresi logistik atau metode non-parametrik lainnya.
+
+Plot Q-Q:
+
 
 ### 5.3. Analisis Korelasi
 - **Nilai Koefisien Korelasi:**
