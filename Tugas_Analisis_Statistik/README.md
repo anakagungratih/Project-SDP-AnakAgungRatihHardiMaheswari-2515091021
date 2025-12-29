@@ -345,9 +345,10 @@ Plot Q-Q:
      Q-Q plot untuk variabel Tingkat_Churn_Persen menampilkan pola yang paling tidak konvensional di antara semua variabel, dengan titik-titik data terkonsentrasi pada rentang (-2, -100) hingga (2, -50). Karakteristik yang paling mencolok adalah seluruh nilai pada sumbu Y yang eksklusif negatif, berkisar antara -100 hingga -50, tanpa satupun nilai positif. Pola ini menunjukkan bahwa setelah transformasi, semua data churn berada jauh di bawah mean distribusi normal teoritis. Garis yang terbentuk relatif datar dengan slope yang lebih landai dibandingkan garis diagonal ideal, mengindikasikan bahwa variabilitas data churn lebih rendah daripada yang diharapkan dalam distribusi normal. Hasil visual ini konsisten dengan temuan statistik deskriptif di mana mean churn bernilai negatif (-14.79%) sementara modus bernilai positif (13.55%), menciptakan distribusi bimodal yang unik. Dalam konteks retensi pelanggan, pola Q-Q plot ini mengungkapkan realitas ganda: secara agregat, sebagian besar perusahaan menunjukkan performa retensi yang sangat baik dengan churn negatif (yang secara teknis menunjukkan retensi netto positif), namun terdapat sub-populasi tertentu dengan churn positif yang signifikan. Distribusi seperti ini mengisyaratkan perlunya pendekatan segmentasi dalam strategi retensi, di mana intervensi yang berbeda diperlukan untuk kelompok pelanggan dengan karakteristik churn yang berbeda.
 
 ### 5.3. Analisis Korelasi
+**NOTE** Pada analisis korelasi ini menggunakan metode spearman, karena semua variabel tidak terdistribusi normal.
+1. Dengan Variabel Pendapatan Tahunan Miliar IDR vs Nilai Pelanggan
 - **Nilai Koefisien Korelasi:**
     Nilai r (rho) = 0.997 (setelah pembulatan menjadi 0.997)
-**NOTE** Pada analisis korelasi ini menggunakan metode spearman karena variabel Pendapatan_Tahunan_Miliar_IDR tidak terdistribusi normal.
   
 **Interpretasi**:
 - Koefisien korelasi Spearman sebesar 0.997 menunjukkan hubungan positif yang sangat kuat antara Pendapatan_Tahunan_Miliar_IDR dan Nilai_Pelanggan_Juta_IDR. Nilai yang mendekati +1 ini mengindikasikan bahwa ketika pendapatan tahunan meningkat, nilai pelanggan juga cenderung meningkat secara hampir sempurna, dan sebaliknya.
@@ -365,6 +366,16 @@ Interpretasi:
 Kesimpulan:
    Terdapat korelasi positif yang sangat kuat dan signifikan secara statistik antara pendapatan tahunan perusahaan dan nilai pelanggannya. Hal ini dapat diinterpretasikan bahwa dalam konteks dataset ini, perusahaan dengan pendapatan yang lebih tinggi secara konsisten juga memiliki portofolio pelanggan dengan nilai ekonomi yang lebih tinggi, menunjukkan hubungan yang hampir deterministik antara kedua metrik kinerja ini.
 
+2. Dengan Variabel "Biaya_Akuisisi_Pelanggan_Juta_IDR", vs , "Tingkat_Churn_Persen"
+    Nilai r (rho) = -0.9992707
+   **Interpretasi**:
+   Koefisien korelasi Spearman sebesar -0.9992707 menunjukkan hubungan negatif yang hampir sempurna antara Biaya Akuisisi Pelanggan dan Tingkat Churn. Nilai yang sangat mendekati -1.0 ini mengindikasikan bahwa terdapat hubungan linier negatif yang sangat kuat antara kedua variabel tersebut. Dalam konteks bisnis, hal ini berarti bahwa semakin tinggi biaya akuisisi pelanggan (dalam juta IDR), maka semakin rendah tingkat churn persentasenya. Hubungan yang hampir sempurna ini mengisyaratkan pola yang sangat konsisten dalam data, di mana perubahan pada biaya akuisisi pelanggan diikuti oleh perubahan yang sangat terprediksi pada tingkat churn dengan arah yang berlawanan. Secara praktis, temuan ini dapat diinterpretasikan bahwa investasi yang lebih tinggi dalam akuisisi pelanggan berkorelasi dengan kemampuan retensi pelanggan yang lebih baik, atau dengan kata lain, pelanggan yang diperoleh dengan biaya lebih tinggi cenderung memiliki loyalitas yang lebih tinggi dan tingkat attrition yang lebih rendah.
+
+**Signifikansi Statistik:**
+   Nilai p-value < 2.2 × 10⁻¹⁶ (secara praktis 0) yang jauh lebih kecil dari tingkat signifikansi α = 0.05 memberikan bukti statistik yang sangat kuat untuk menolak hipotesis nol yang menyatakan tidak ada hubungan antara kedua variabel. Dengan kata lain, hubungan negatif yang sangat kuat antara Biaya Akuisisi Pelanggan dan Tingkat Churn ini bersifat signifikan secara statistik dengan tingkat kepercayaan yang sangat tinggi (lebih dari 99.999%). Nilai S sebesar 91,086,375 dalam uji Spearman mencerminkan jumlah peringkat yang tidak sesuai antara kedua variabel, yang dalam konteks korelasi negatif sempurna seperti ini, menunjukkan bahwa urutan peringkat biaya akuisisi pelanggan hampir sepenuhnya berkebalikan dengan urutan peringkat tingkat churn. Signifikansi yang ekstrem ini mengkonfirmasi bahwa hubungan yang diamati bukanlah hasil kebetulan atau fluktuasi sampling, melainkan mencerminkan pola hubungan yang nyata dan dapat diandalkan dalam populasi data startup SaaS yang dianalisis.
+
+ **Visualisasi (Scatter Plot):**
+ 
 
 ### 5.4. Analisis Regresi
 - **Model Regresi:**
