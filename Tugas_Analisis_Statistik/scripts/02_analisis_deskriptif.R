@@ -389,7 +389,7 @@ ggsave(
   dpi = 300
 )
 
-cat("✅ Histogram berhasil disimpan di:\n")
+cat(" Histogram berhasil disimpan di:\n")
 cat("   ", save_path, "\n")
 
 
