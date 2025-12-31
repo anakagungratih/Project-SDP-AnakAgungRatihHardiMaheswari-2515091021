@@ -162,7 +162,7 @@ Implikasi Bisnis: Performa retensi pelanggan secara keseluruhan sangat positif d
 **TABEL UKURAN SEBARAN**
 ![TABEL UKURAN SEBARAN 4 VARIABEL](results/tabel_sebaran_data_4_variabel.png)
 
-- Pendapatan Tahunan (Miliar IDR)
+1. Pendapatan Tahunan (Miliar IDR)
 - Ringkasan Ukuran Sebaran:
 - Range (Rentang): 1.00 - 66.89 Miliar IDR
 - Standar Deviasi: 19.79 Miliar IDR
